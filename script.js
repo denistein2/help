@@ -32,16 +32,21 @@ function check(){let first=null;
 }
 let tried=false;
 form.addEventListener("submit",(event)=>{
- event.preventDefault();
- if(form.elements.namedItem("website").value)return;
+ const status=document.getElementById("form-status");
+ if(form.elements.namedItem("_honey").value){
+  event.preventDefault();status.textContent="Não foi possível processar este envio.";return;
+ }
  tried=true;
  const first=check();
- document.getElementById("demo-notice").hidden=true;
- const status=document.getElementById("form-status");
- if(first){status.textContent="Confira os campos destacados.";first.focus();return;}
- status.textContent="Formulário validado. Nenhum dado foi enviado.";
- document.getElementById("demo-notice").hidden=false;
+ if(first){event.preventDefault();status.textContent="Confira os campos destacados.";first.focus();return;}
+ const next=document.getElementById("thankyou-url");
+ if(next && /^https?:$/.test(window.location.protocol)){
+  next.value=new URL("/obrigado.html",window.location.origin).href;
+ }
+ status.textContent="Abrindo a confirmação de envio…";
+ // Envio nativo: FormSubmit exibirá proteção antispam e solicitará ativação inicial.
+ // Não anunciar sucesso sem a resposta do provedor de formulários.
 });
-form.addEventListener("input",()=>{if(tried)check();document.getElementById("demo-notice").hidden=true;});
-form.addEventListener("change",()=>{if(tried)check();document.getElementById("demo-notice").hidden=true;});
+form.addEventListener("input",()=>{if(tried)check();});
+form.addEventListener("change",()=>{if(tried)check();});
 })();
