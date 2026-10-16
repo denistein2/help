@@ -41,7 +41,7 @@ section[id]{scroll-margin-top:110px}
 }
 @media(max-width:390px){header .site-cta{font-size:12px!important}header .site-brand span{font-size:15px!important}}
 </style>
-<!-- Prévia estática: o formulário demonstrativo não envia dados e não carrega o JavaScript de produção. -->
+<script defer src="/script.js"></script>
 <style id="help-identity-preview-css">/* HELP SOLUÇÕES — CONCEITO VISUAL V1 | arte original preservada */
 :root{--ink:#131228;--night:#110B24;--night-soft:#201439;--night-deep:#0B0A1C;--lime:#92FF27;--lime-quiet:#E6FFD0;--cyan:#16B8B1;--violet:#5E347A;--surface:#F5F5FA;--line:#E4E2EB;--muted:#63647A}
 html{scroll-padding-top:102px}
@@ -141,7 +141,7 @@ footer a:hover{color:var(--lime)!important}
 @media(max-width:480px){.helpv2-head-logo{width:150px}.site-header-inner{gap:8px!important}.site-cta{font-size:11px!important;padding:9px 10px!important}#inicio h1{font-size:clamp(2.1rem,10vw,2.6rem)!important}.helpv2-features-grid{display:block}.helpv2-features-grid>div,.helpv2-features-grid>div:nth-child(2){border-right:0;border-bottom:1px solid rgba(255,255,255,.16);padding:17px 4px}.helpv2-features-grid>div:last-child{border:0}.helpv2-footer-grid{grid-template-columns:1fr 1fr;gap:24px 15px}.helpv2-footer-grid>div:first-child,.helpv2-footer-grid>div:last-child{grid-column:1/-1}}
 </style></head>
 <body>
-<div id="site-announcement">PROPOSTA VISUAL DE IDENTIDADE • NÃO PUBLICADA</div>
+<div id="site-announcement">SITE EM HOMOLOGAÇÃO • CONTEÚDO SUJEITO À APROVAÇÃO DA HELP SOLUÇÕES</div>
 <div style="min-height:100vh;background:#fff;font-family:Manrope,system-ui,sans-serif">
 <a href="#conteudo" onblur="this.style.left='-9999px'" onfocus="this.style.left='16px'" style="position:absolute;left:-9999px;top:8px;background:#fff;padding:8px 12px;z-index:99">Pular para o conteúdo</a>
 <header class="site-header" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,0.96);border-bottom:1px solid #E2E8F0;backdrop-filter:blur(8px)">
@@ -349,7 +349,7 @@ footer a:hover{color:var(--lime)!important}
 </details>
 <details style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:20px 22px">
 <summary style="cursor:pointer;font-weight:700;font-size:17px;color:#0B1730">Como posso solicitar uma proposta?</summary>
-<p style="margin:12px 0 0;color:#475569">Nesta demonstração, você pode conhecer o formulário. O envio será habilitado após aprovação dos canais oficiais.</p>
+<p style="margin:12px 0 0;color:#475569">Você pode solicitar uma proposta pelo formulário ou entrar em contato pelo WhatsApp.</p>
 </details>
 </div>
 </div>
@@ -360,79 +360,83 @@ footer a:hover{color:var(--lime)!important}
 <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#2563EB">Contato comercial</p>
 <h2 id="contato-titulo" style="margin:0;font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.15;font-weight:800;letter-spacing:-0.02em;text-wrap:balance">Sua operação merece um suporte que entenda o seu negócio.</h2>
 <p style="margin:0;font-size:18px;color:#475569;text-wrap:pretty">Conte um pouco sobre sua empresa e vamos conversar sobre suas necessidades.</p>
-<p class="demo-disclaimer" style="margin:0;padding:14px 16px;border-left:3px solid #16A6A0;background:#F5F7FB;border-radius:8px;color:#334155;font-size:15px">Prévia de design: este formulário está desativado. A versão publicada usa o serviço de envio configurado no site atual.</p>
+<p class="demo-disclaimer" style="margin:0;padding:14px 16px;border-left:3px solid #16A6A0;background:#F5F7FB;border-radius:8px;color:#334155;font-size:15px">O formulário envia informações ao e-mail comercial por um serviço externo. O recebimento depende da ativação inicial do endereço. Não envie senhas ou dados sensíveis.</p>
 <div class="preview-contact-links"><a href="https://wa.me/5551981483515?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20o%20suporte%20da%20Help%20Solu%C3%A7%C3%B5es." rel="noopener noreferrer" target="_blank">Conversar no WhatsApp ↗</a><a href="mailto:helpsuporteatendimento@gmail.com">helpsuporteatendimento@gmail.com</a></div></div>
-<form action="#contato" aria-label="Solicitar contato comercial" id="lead-form" method="GET" novalidate="" onsubmit="event.preventDefault(); document.getElementById('form-status').textContent='Prévia visual: nenhum dado foi enviado.'" style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:32px;display:grid;gap:18px;box-shadow:0 12px 32px rgba(11,23,48,0.07)">
-<div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">
-<label>Site<input autocomplete="off" name="website" tabindex="-1" type="text"/></label>
-</div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px">
-<div style="display:grid;gap:6px">
-<label for="f-nome" style="font-weight:700;font-size:14px">Nome do responsável <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-<input aria-describedby="e-nome" autocomplete="name" id="f-nome" name="nome" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff" type="text"/>
-<span class="field-error" id="e-nome" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
-</div>
-<div style="display:grid;gap:6px">
-<label for="f-empresa" style="font-weight:700;font-size:14px">Empresa <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-<input aria-describedby="e-empresa" autocomplete="organization" id="f-empresa" name="empresa" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff" type="text"/>
-<span class="field-error" id="e-empresa" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
-</div>
-<div style="display:grid;gap:6px">
-<label for="f-email" style="font-weight:700;font-size:14px">E-mail corporativo <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-<input aria-describedby="e-email" autocomplete="email" id="f-email" name="email" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff" type="email"/>
-<span class="field-error" id="e-email" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
-</div>
-<div style="display:grid;gap:6px">
-<label for="f-whats" style="font-weight:700;font-size:14px">WhatsApp com DDD <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-<input aria-describedby="e-whats" autocomplete="tel" id="f-whats" name="whatsapp" placeholder="(11) 90000-0000" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff" type="tel"/>
-<span class="field-error" id="e-whats" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
-</div>
-<div style="display:grid;gap:6px">
-<label for="f-lojas" style="font-weight:700;font-size:14px">Quantidade aproximada de lojas <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-<select aria-describedby="e-lojas" id="f-lojas" name="lojas" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
-<option value="">Selecione</option>
-<option value="1">1 loja</option>
-<option value="2-5">2 a 5 lojas</option>
-<option value="6-20">6 a 20 lojas</option>
-<option value="21+">Mais de 20 lojas</option>
-</select>
-<span class="field-error" id="e-lojas" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
-</div>
-<div style="display:grid;gap:6px">
-<label for="f-sistema" style="font-weight:700;font-size:14px">Sistema utilizado <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-<select aria-describedby="e-sistema" id="f-sistema" name="sistema" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
-<option value="">Selecione</option>
-<option value="Linx ERP/PMS">Linx ERP/PMS</option>
-<option value="Microvix">Microvix</option>
-<option value="Linx POS">Linx POS</option>
-<option value="Outro">Outro</option>
-<option value="Não sei informar">Não sei informar</option>
-</select>
-<span class="field-error" id="e-sistema" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
-</div>
-</div>
-<div style="display:grid;gap:6px">
-<label for="f-need" style="font-weight:700;font-size:14px">Principal necessidade <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-<textarea aria-describedby="e-need" id="f-need" name="necessidade" rows="4" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff;resize:vertical"></textarea>
-<span class="field-error" id="e-need" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
-</div>
-<div style="display:grid;gap:6px">
-<label style="display:flex;gap:10px;align-items:flex-start;font-size:15px;color:#334155;cursor:pointer">
-<input aria-describedby="e-consent" name="consent" style="margin-top:5px;width:18px;height:18px;accent-color:#2563EB" type="checkbox"/>
-<span>Li as informações de privacidade (prévia visual, sem envio de dados).</span>
-</label>
-<span class="field-error" id="e-consent" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
-</div>
-<div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
-<button id="submit-lead" style="background:#2563EB;color:#fff;border:0;font:inherit;font-weight:700;font-size:16px;padding:15px 24px;border-radius:12px;cursor:pointer" type="submit">Visualizar envio (demonstração)</button>
-<span id="form-status" role="status" style="font-size:14px;color:#475569"></span>
-</div>
-<div hidden="" id="demo-notice">
-<div role="alert" style="padding:16px;border-radius:12px;background:#FFF7ED;border:1px solid #FDBA74;color:#7C2D12;font-size:15px">
-<strong>Modo de demonstração.</strong> Nenhuma mensagem foi enviada. A integração do formulário ainda não está configurada.
+<form id="lead-form" action="https://formsubmit.co/helpsuporteatendimento@gmail.com" method="POST" novalidate style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:32px;display:grid;gap:18px;box-shadow:0 12px 32px rgba(11,23,48,0.07)" aria-label="Solicitar contato comercial">
+      <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
+        <label>Site<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <input type="hidden" name="_subject" value="Novo contato comercial — Site Help Soluções">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" id="thankyou-url" value="">
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px">
+        <div style="display:grid;gap:6px">
+          <label for="f-nome" style="font-weight:700;font-size:14px">Nome do responsável <span aria-hidden="true" style="color:#B91C1C">*</span></label>
+          <input id="f-nome" name="nome" type="text" autocomplete="name" aria-describedby="e-nome" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+          <span class="field-error" id="e-nome" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
         </div>
-</div>
-</form>
+        <div style="display:grid;gap:6px">
+          <label for="f-empresa" style="font-weight:700;font-size:14px">Empresa <span aria-hidden="true" style="color:#B91C1C">*</span></label>
+          <input id="f-empresa" name="empresa" type="text" autocomplete="organization" aria-describedby="e-empresa" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+          <span class="field-error" id="e-empresa" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
+        </div>
+        <div style="display:grid;gap:6px">
+          <label for="f-email" style="font-weight:700;font-size:14px">E-mail corporativo <span aria-hidden="true" style="color:#B91C1C">*</span></label>
+          <input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="e-email" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+          <span class="field-error" id="e-email" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
+        </div>
+        <div style="display:grid;gap:6px">
+          <label for="f-whats" style="font-weight:700;font-size:14px">WhatsApp com DDD <span aria-hidden="true" style="color:#B91C1C">*</span></label>
+          <input id="f-whats" name="whatsapp" type="tel" autocomplete="tel" placeholder="(11) 90000-0000" aria-describedby="e-whats" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+          <span class="field-error" id="e-whats" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
+        </div>
+        <div style="display:grid;gap:6px">
+          <label for="f-lojas" style="font-weight:700;font-size:14px">Quantidade aproximada de lojas <span aria-hidden="true" style="color:#B91C1C">*</span></label>
+          <select id="f-lojas" name="lojas" aria-describedby="e-lojas" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+            <option value="">Selecione</option>
+            <option value="1">1 loja</option>
+            <option value="2-5">2 a 5 lojas</option>
+            <option value="6-20">6 a 20 lojas</option>
+            <option value="21+">Mais de 20 lojas</option>
+          </select>
+          <span class="field-error" id="e-lojas" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
+        </div>
+        <div style="display:grid;gap:6px">
+          <label for="f-sistema" style="font-weight:700;font-size:14px">Sistema utilizado <span aria-hidden="true" style="color:#B91C1C">*</span></label>
+          <select id="f-sistema" name="sistema" aria-describedby="e-sistema" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+            <option value="">Selecione</option>
+            <option value="Linx ERP/PMS">Linx ERP/PMS</option>
+            <option value="Microvix">Microvix</option>
+            <option value="Linx POS">Linx POS</option>
+            <option value="Outro">Outro</option>
+            <option value="Não sei informar">Não sei informar</option>
+          </select>
+          <span class="field-error" id="e-sistema" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
+        </div>
+      </div>
+
+      <div style="display:grid;gap:6px">
+        <label for="f-need" style="font-weight:700;font-size:14px">Principal necessidade <span aria-hidden="true" style="color:#B91C1C">*</span></label>
+        <textarea id="f-need" name="necessidade" rows="4" aria-describedby="e-need" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff;resize:vertical"></textarea>
+        <span class="field-error" id="e-need" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
+      </div>
+
+      <div style="display:grid;gap:6px">
+        <label style="display:flex;gap:10px;align-items:flex-start;font-size:15px;color:#334155;cursor:pointer">
+          <input name="consent" type="checkbox" aria-describedby="e-consent" style="margin-top:5px;width:18px;height:18px;accent-color:#2563EB">
+          <span>Li as <a href="privacidade.html">informações de privacidade</a> e autorizo o envio dos dados informados para retorno comercial da Help, por meio do serviço FormSubmit. <span aria-hidden="true" style="color:#B91C1C">*</span></span>
+        </label>
+        <span class="field-error" id="e-consent" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
+      </div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+        <button id="submit-lead" type="submit" style="background:#2563EB;color:#fff;border:0;font:inherit;font-weight:700;font-size:16px;padding:15px 24px;border-radius:12px;cursor:pointer">Solicitar contato comercial</button>
+        <span id="form-status" role="status" style="font-size:14px;color:#475569"></span>
+      </div>
+
+    </form>
 </div>
 </section>
 </main>
