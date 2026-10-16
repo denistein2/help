@@ -1,6 +1,6 @@
-# Help Soluções — site de avaliação
+# Help Soluções — identidade V2 em homologação
 
-Site estático, sem dependências de build, convertido de `Help Site.dc.html`. Prévia comercial para aprovação pelo Marcus.
+Site estático, sem dependências de build. Identidade V2 com leão, ondas neon e novo conteúdo institucional, em homologação para aprovação comercial pela Help.
 
 ## Prévia local
 
