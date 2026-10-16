@@ -13,7 +13,7 @@ Importar `denistein2/help`, Framework **Other**, raiz `./`, sem Build Command e 
 ## WhatsApp e e-mail
 
 - Botão flutuante e links para WhatsApp **+55 51 98148-3515** (wa.me/5551981483515).
-- E-mail comercial: **helpsuporteatendimento@gmail.com**.
+- E-mail comercial: **helpsolucoesemsuporte@gmail.com**.
 - O formulário faz POST para o **FormSubmit.co** e encaminha os dados para esse e-mail.
 - **Primeira ativação obrigatória:** faça um envio de teste com dados fictícios, confira o e-mail de confirmação do FormSubmit na caixa de entrada (e spam) e clique no link de ativação; só então faça outro teste e confirme o recebimento. A equipe deste projeto não tem acesso à caixa de entrada e não verificou a entrega.
 - O formulário usa validação no cliente, campo honeypot `_honey` e reCAPTCHA padrão do FormSubmit. `obrigado.html` é a página de retorno após fluxo de envio.
