@@ -290,7 +290,7 @@ section[id]{scroll-margin-top:110px}
       </details>
       <details style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:20px 22px">
         <summary style="cursor:pointer;font-weight:700;font-size:17px;color:#0B1730">Como posso solicitar uma proposta?</summary>
-        <p style="margin:12px 0 0;color:#475569">Você pode preencher o formulário para solicitar contato comercial ou falar diretamente com a equipe pelo WhatsApp.</p>
+        <p style="margin:12px 0 0;color:#475569">Nesta prévia, o formulário não envia dados. Para solicitar contato comercial, fale diretamente com a equipe pelo WhatsApp ou e-mail.</p>
       </details>
     </div>
   </div>
@@ -306,7 +306,7 @@ section[id]{scroll-margin-top:110px}
       <div style="display:grid;gap:9px;font-size:15px"><a href="https://wa.me/5551981483515?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20o%20suporte%20da%20Help%20Solu%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer" style="color:#087940;font-weight:800;text-decoration:none">Conversar agora pelo WhatsApp →</a><a href="mailto:helpsuporteatendimento@gmail.com" style="color:#2563EB;word-break:break-word">helpsuporteatendimento@gmail.com</a></div>
     </div>
 
-    <form id="lead-form" action="#contato" method="GET" novalidate onsubmit="event.preventDefault(); document.getElementById('form-status').textContent='Prévia visual: nenhum dado foi enviado.'" style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:32px;display:grid;gap:18px;box-shadow:0 12px 32px rgba(11,23,48,0.07)" aria-label="Solicitar contato comercial">
+    <form id="lead-form" action="#contato" method="GET" novalidate onsubmit="event.preventDefault(); document.getElementById('form-status').textContent='Prévia visual: nenhum dado foi enviado.'" style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:32px;display:grid;gap:18px;box-shadow:0 12px 32px rgba(11,23,48,0.07)" aria-label="Simulação de contato comercial (não envia dados)">
       <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
         <label>Site<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
       </div>
@@ -370,13 +370,13 @@ section[id]{scroll-margin-top:110px}
       <div style="display:grid;gap:6px">
         <label style="display:flex;gap:10px;align-items:flex-start;font-size:15px;color:#334155;cursor:pointer">
           <input name="consent" type="checkbox" aria-describedby="e-consent" style="margin-top:5px;width:18px;height:18px;accent-color:#2563EB">
-          <span>Li as <a href="privacidade.html">informações de privacidade</a> e autorizo o envio dos dados informados para retorno comercial da Help, por meio do serviço FormSubmit. <span aria-hidden="true" style="color:#B91C1C">*</span></span>
+          <span>Li as <a href="privacidade.html">informações de privacidade</a> e entendo que este formulário é demonstrativo e não enviará meus dados. <span aria-hidden="true" style="color:#B91C1C">*</span></span>
         </label>
         <span class="field-error" id="e-consent" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
       </div>
 
       <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
-        <button id="submit-lead" type="submit" style="background:#2563EB;color:#fff;border:0;font:inherit;font-weight:700;font-size:16px;padding:15px 24px;border-radius:12px;cursor:pointer">Solicitar contato comercial</button>
+        <button id="submit-lead" type="submit" style="background:#2563EB;color:#fff;border:0;font:inherit;font-weight:700;font-size:16px;padding:15px 24px;border-radius:12px;cursor:pointer">Simular solicitação de contato</button>
         <span id="form-status" role="status" style="font-size:14px;color:#475569"></span>
       </div>
 
