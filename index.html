@@ -139,10 +139,18 @@ footer a:hover{color:var(--lime)!important}
 @media(max-width:1070px){.helpv2-head-logo{width:170px}.helpv2-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:780px){#inicio{padding:58px 18px 63px!important}#inicio>div:not(.helpv2-waves){grid-template-columns:minmax(0,1fr)!important;gap:22px!important}#inicio h1{font-size:clamp(2.2rem,7vw,3.2rem)!important}.helpv2-visual{width:min(100%,580px);margin:auto}.helpv2-features-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.helpv2-features-grid>div:nth-child(2){border-right:0}.helpv2-features-grid>div:last-child{grid-column:1/-1;border-top:1px solid #E4E3EC}}
 @media(max-width:480px){.helpv2-head-logo{width:150px}.site-header-inner{gap:8px!important}.site-cta{font-size:11px!important;padding:9px 10px!important}#inicio h1{font-size:clamp(2.1rem,10vw,2.6rem)!important}.helpv2-features-grid{display:block}.helpv2-features-grid>div,.helpv2-features-grid>div:nth-child(2){border-right:0;border-bottom:1px solid #E4E3EC;padding:16px 4px}.helpv2-features-grid>div:last-child{border:0}.helpv2-footer-grid{grid-template-columns:1fr 1fr;gap:24px 15px}.helpv2-footer-grid>div:first-child,.helpv2-footer-grid>div:last-child{grid-column:1/-1}}
-/* Ajustes de legibilidade e ritmo vertical para o bloco de serviços */
-#dores{padding-top:44px!important}
+/* HELP — ritmo vertical consistente entre seções, desktop e mobile */
+main#conteudo > section.helpv2-features{padding:10px 24px!important}
+main#conteudo > section[id]:not(#inicio){padding:42px 24px!important}
+main#conteudo > section#dores{padding-top:32px!important}
+main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:28px!important}
 @media(max-width:1020px) and (min-width:781px){.helpv2-features-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.helpv2-features-grid>div:nth-child(2){border-right:0}.helpv2-features-grid>div:last-child{grid-column:1/-1;border-top:1px solid #E4E3EC}}
-@media(max-width:780px){#dores{padding-top:40px!important}}
+@media(max-width:760px){
+  main#conteudo > section.helpv2-features{padding:8px 20px!important}
+  main#conteudo > section[id]:not(#inicio){padding:28px 20px!important}
+  main#conteudo > section#dores{padding-top:24px!important}
+  main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:24px!important}
+}
 </style></head>
 <body>
 <div id="site-announcement">SITE EM HOMOLOGAÇÃO • CONTEÚDO SUJEITO À APROVAÇÃO DA HELP SOLUÇÕES</div>
