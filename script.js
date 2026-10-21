@@ -1,3 +1,24 @@
+/* A rolagem por âncoras considera a altura REAL do cabeçalho fixo,
+   inclusive a navegação que quebra em duas linhas em telas menores. */
+(() => {
+  "use strict";
+  const header = document.querySelector(".site-header");
+  if (!header) return;
+
+  const updateHeaderOffset = () => {
+    const height = Math.ceil(header.getBoundingClientRect().height);
+    document.documentElement.style.setProperty("--help-header-offset", `${height + 8}px`);
+  };
+
+  updateHeaderOffset();
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(updateHeaderOffset).observe(header);
+  } else {
+    window.addEventListener("resize", updateHeaderOffset, { passive: true });
+  }
+  window.addEventListener("pageshow", updateHeaderOffset);
+})();
+
 (() => {
   "use strict";
 
