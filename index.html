@@ -151,6 +151,23 @@ main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:28px!i
   main#conteudo > section#dores{padding-top:24px!important}
   main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:24px!important}
 }
+
+/* Depoimentos — somente estrutura de homologação, sem relatos atribuídos. */
+#depoimentos .hd-wrap{max-width:1160px;margin:0 auto;display:grid;gap:24px}
+#depoimentos .hd-heading{max-width:790px;display:grid;gap:10px}
+#depoimentos .hd-eyebrow{margin:0;color:#0B8F89;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:800}
+#depoimentos .hd-heading h2{margin:0;font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.15;font-weight:800;letter-spacing:-.02em;text-wrap:balance}
+#depoimentos .hd-intro{margin:0;color:#55556D;font-size:16px;line-height:1.65;max-width:68ch}
+#depoimentos .hd-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+#depoimentos .hd-card{min-width:0;background:#fff;border:1px solid #E1DFE9;border-radius:18px;padding:25px;box-shadow:0 9px 28px rgba(25,13,45,.045);display:flex;flex-direction:column;gap:17px}
+#depoimentos .hd-card-top{display:flex;justify-content:space-between;align-items:center;gap:12px}
+#depoimentos .hd-number{color:#716D86;font-weight:800;font-size:12px;letter-spacing:.1em}
+#depoimentos .hd-status{border-radius:999px;background:#F1F0F7;color:#585270;padding:5px 9px;font-size:11px;font-weight:750}
+#depoimentos .hd-placeholder{margin:0;line-height:1.7;color:#55556D;font-size:15px;flex:1}
+#depoimentos .hd-attribution{padding-top:16px;border-top:1px solid #E6E4EE;font-size:13px;color:#706C80;font-weight:700}
+#depoimentos .hd-notice{margin:0;color:#6B6880;font-size:13px;line-height:1.55}
+@media(max-width:870px){#depoimentos .hd-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#depoimentos .hd-card:last-child{grid-column:1/-1}}
+@media(max-width:600px){#depoimentos .hd-grid{grid-template-columns:1fr}#depoimentos .hd-card:last-child{grid-column:auto}#depoimentos .hd-card{padding:21px}#depoimentos .hd-wrap{gap:20px}}
 </style></head>
 <body>
 <div id="site-announcement">SITE EM HOMOLOGAÇÃO • CONTEÚDO SUJEITO À APROVAÇÃO DA HELP SOLUÇÕES</div>
@@ -323,6 +340,33 @@ main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:28px!i
 <li style="background:#fff;border:1px solid #E2E8F0;border-radius:14px;padding:22px;font-weight:700;color:#0B1730">Equipes administrativas e de retaguarda</li>
 </ul>
 <p style="margin:0;color:#64748B;max-width:70ch">A cobertura de cada produto e de cada rotina é definida na proposta, conforme o escopo contratado.</p>
+</div>
+</section>
+<section aria-labelledby="depoimentos-titulo" id="depoimentos" class="help-depoimentos">
+<div class="hd-wrap">
+  <div class="hd-heading">
+    <p class="hd-eyebrow">Depoimentos de clientes</p>
+    <h2 id="depoimentos-titulo">Em breve, histórias reais de quem conta com a Help.</h2>
+    <p class="hd-intro">Preparamos este espaço para compartilhar experiências de clientes, com textos e identificações aprovados antes da publicação.</p>
+  </div>
+  <div class="hd-grid" aria-label="Modelos de apresentação de depoimentos">
+    <article class="hd-card">
+      <div class="hd-card-top"><span class="hd-number">DEPOIMENTO 01</span><span class="hd-status">Aguardando conteúdo</span></div>
+      <p class="hd-placeholder">Espaço reservado para o relato original do cliente, após a autorização para uso no site.</p>
+      <div class="hd-attribution">Nome, função e empresa a confirmar</div>
+    </article>
+    <article class="hd-card">
+      <div class="hd-card-top"><span class="hd-number">DEPOIMENTO 02</span><span class="hd-status">Aguardando conteúdo</span></div>
+      <p class="hd-placeholder">Espaço reservado para o relato original do cliente, após a autorização para uso no site.</p>
+      <div class="hd-attribution">Nome, função e empresa a confirmar</div>
+    </article>
+    <article class="hd-card">
+      <div class="hd-card-top"><span class="hd-number">DEPOIMENTO 03</span><span class="hd-status">Aguardando conteúdo</span></div>
+      <p class="hd-placeholder">Espaço reservado para o relato original do cliente, após a autorização para uso no site.</p>
+      <div class="hd-attribution">Nome, função e empresa a confirmar</div>
+    </article>
+  </div>
+  <p class="hd-notice">Esta é uma prévia visual. Nenhuma avaliação, identidade ou marca de cliente foi publicada ou inventada.</p>
 </div>
 </section>
 <section aria-labelledby="sobre-titulo" id="sobre" style="background:#fff;padding:96px 24px">
