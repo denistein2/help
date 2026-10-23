@@ -163,6 +163,13 @@ main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:28px!i
 #diferenciais .milldesk-feature-button:focus-visible{outline:3px solid #fff;outline-offset:4px}
 @media(max-width:760px){#diferenciais .milldesk-feature{margin-bottom:32px;padding-bottom:32px}#diferenciais .milldesk-feature h2{max-width:100%}}
 @media(prefers-reduced-motion:reduce){#diferenciais .milldesk-feature-button{transition:none}}
+/* Indicador de experiência da Help: contador visível na seção de diferenciais */
+#diferenciais .help-diff-heading{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:28px}
+#diferenciais .help-diff-heading-copy{display:grid;gap:14px;max-width:720px;min-width:0}
+#diferenciais .help-attendances{width:min(100%,300px);min-width:250px;padding:25px 24px;border-radius:18px;border:1px solid rgba(146,255,39,.32);background:rgba(146,255,39,.065);box-shadow:0 10px 28px rgba(0,0,0,.08)}
+#diferenciais .help-attendances-value{display:block;color:var(--lime);font-size:clamp(2.6rem,4.1vw,3.7rem);font-weight:800;letter-spacing:-.045em;line-height:1.05;font-variant-numeric:tabular-nums;white-space:nowrap}
+#diferenciais .help-attendances-caption{display:block;margin-top:11px;color:#E5DEEE;font-size:14px;font-weight:600;line-height:1.45}
+@media(max-width:850px){#diferenciais .help-diff-heading{grid-template-columns:minmax(0,1fr);gap:22px}#diferenciais .help-attendances{min-width:0}}
 </style></head>
 <body>
 <div id="site-announcement">SITE EM HOMOLOGAÇÃO • CONTEÚDO SUJEITO À APROVAÇÃO DA HELP SOLUÇÕES</div>
@@ -272,9 +279,15 @@ main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:28px!i
   <a class="milldesk-feature-button" href="https://helpsuporte.milldesk.com" target="_blank" rel="noopener noreferrer">Nossa Plataforma <span aria-hidden="true">↗</span></a>
 </div>
 <div style="max-width:1160px;margin:0 auto;display:grid;gap:48px">
-<div style="display:grid;gap:14px;max-width:720px">
+<div class="help-diff-heading">
+<div class="help-diff-heading-copy">
 <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5EEAD4">Por que escolher a Help?</p>
 <h2 id="dif-titulo" style="margin:0;font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.15;font-weight:800;letter-spacing:-0.02em;text-wrap:balance">Atendimento com empatia, agilidade e senso de prioridade.</h2>
+</div>
+<div class="help-attendances" role="img" aria-label="Mais de 30 mil atendimentos">
+<strong class="help-attendances-value" data-count-to="30000" aria-hidden="true">30.000+</strong>
+<span class="help-attendances-caption" aria-hidden="true">atendimentos realizados</span>
+</div>
 </div>
 <ul style="list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px">
 <li style="border:1px solid rgba(255,255,255,0.14);border-radius:16px;padding:24px;display:grid;gap:8px">
