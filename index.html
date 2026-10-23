@@ -151,6 +151,18 @@ main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:28px!i
   main#conteudo > section#dores{padding-top:24px!important}
   main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:24px!important}
 }
+
+/* Milldesk: destaque institucional no início da área roxa */
+#diferenciais .milldesk-feature{max-width:1160px;margin:0 auto 48px;padding-bottom:42px;border-bottom:1px solid rgba(255,255,255,.16)}
+#diferenciais .milldesk-feature-label{margin:0 0 16px;color:var(--lime);font-size:13px;font-weight:800;letter-spacing:.12em;line-height:1.6;text-transform:uppercase}
+#diferenciais .milldesk-feature h2{margin:0 0 18px;color:#fff;font-size:clamp(1.75rem,3.2vw,2.5rem);line-height:1.18;font-weight:800;letter-spacing:-.02em;max-width:28ch;text-wrap:balance}
+#diferenciais .milldesk-feature-description{margin:0 0 18px;color:#D3CDE0;font-size:clamp(1rem,1.5vw,1.125rem);line-height:1.7;max-width:77ch;text-wrap:pretty}
+#diferenciais .milldesk-feature-emphasis{margin:0 0 22px;color:#fff;font-size:clamp(1rem,1.45vw,1.125rem);line-height:1.5}
+#diferenciais .milldesk-feature-button{display:inline-flex;align-items:center;gap:11px;width:fit-content;max-width:100%;padding:13px 19px;border-radius:10px;background:var(--lime);color:#131228!important;font-size:15px;font-weight:800;line-height:1.35;text-decoration:none;transition:background .2s ease,transform .2s ease}
+#diferenciais .milldesk-feature-button:hover{background:#baff76;transform:translateY(-2px)}
+#diferenciais .milldesk-feature-button:focus-visible{outline:3px solid #fff;outline-offset:4px}
+@media(max-width:760px){#diferenciais .milldesk-feature{margin-bottom:32px;padding-bottom:32px}#diferenciais .milldesk-feature h2{max-width:100%}}
+@media(prefers-reduced-motion:reduce){#diferenciais .milldesk-feature-button{transition:none}}
 </style></head>
 <body>
 <div id="site-announcement">SITE EM HOMOLOGAÇÃO • CONTEÚDO SUJEITO À APROVAÇÃO DA HELP SOLUÇÕES</div>
@@ -161,6 +173,7 @@ main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:28px!i
 <a class="site-brand" href="#inicio" aria-label="Help Soluções em Suporte, página inicial"><img src="assets/help-logo-leao-v2-transparente.png" alt="Help Soluções em Suporte" class="helpv2-head-logo" width="206" height="138"></a>
 <nav aria-label="Principal" class="site-nav" style="display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center">
 <a href="#servicos" style="color:#0B1730;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap">Serviços</a>
+<a href="#plataforma" style="color:#0B1730;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap">Plataforma</a>
 <a href="#diferenciais" style="color:#0B1730;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap">Diferenciais</a>
 <a href="#como-funciona" style="color:#0B1730;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap">Como funciona</a>
 <a href="#faq" style="color:#0B1730;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap">Perguntas</a>
@@ -251,6 +264,13 @@ main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:28px!i
 </div>
 </section>
 <section aria-labelledby="dif-titulo" id="diferenciais" style="background:#0B1730;color:#fff;padding:96px 24px">
+<div id="plataforma" class="milldesk-feature" aria-labelledby="milldesk-titulo">
+  <p class="milldesk-feature-label">Plataforma de Chamados e Gestão de Atendimentos</p>
+  <h2 id="milldesk-titulo">Organize as solicitações internas da sua empresa em um só lugar.</h2>
+  <p class="milldesk-feature-description">Com o Milldesk, sua equipe pode registrar chamados, acompanhar solicitações, distribuir atendimentos entre os responsáveis e manter um histórico das atividades, trazendo mais organização, controle e visibilidade para as rotinas do dia a dia.</p>
+  <p class="milldesk-feature-emphasis"><strong>Sua empresa ainda não possui um sistema de chamados? A Help pode ajudar!</strong></p>
+  <a class="milldesk-feature-button" href="https://helpsuporte.milldesk.com" target="_blank" rel="noopener noreferrer">Conheça o Milldesk <span aria-hidden="true">↗</span></a>
+</div>
 <div style="max-width:1160px;margin:0 auto;display:grid;gap:48px">
 <div style="display:grid;gap:14px;max-width:720px">
 <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5EEAD4">Por que escolher a Help?</p>
