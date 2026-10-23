@@ -171,3 +171,47 @@
     if (attempted && !sending) validate();
   });
 })();
+
+/* Contador de atendimentos: uma animação ao entrar em tela, com acessibilidade. */
+(() => {
+  "use strict";
+
+  const counter = document.querySelector(".help-attendances-value[data-count-to]");
+  if (!counter) return;
+
+  const target = Number(counter.getAttribute("data-count-to"));
+  if (!Number.isSafeInteger(target) || target <= 0) return;
+
+  // Sem JavaScript, APIs de animação ou com movimento reduzido, o HTML já mostra 30.000+.
+  if (
+    !("IntersectionObserver" in window) ||
+    !("requestAnimationFrame" in window) ||
+    (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+  ) return;
+
+  const format = new Intl.NumberFormat("pt-BR");
+  const durationMs = 1250;
+  const observer = new IntersectionObserver((entries) => {
+    if (!entries.some((entry) => entry.isIntersecting)) return;
+
+    observer.disconnect();
+    let startTime = null;
+    counter.textContent = "0";
+
+    const tick = (timestamp) => {
+      if (startTime === null) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / durationMs, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = Math.round(target * eased);
+      counter.textContent = format.format(value) + (progress === 1 ? "+" : "");
+
+      if (progress < 1) {
+        window.requestAnimationFrame(tick);
+      }
+    };
+
+    window.requestAnimationFrame(tick);
+  }, { threshold: 0.3 });
+
+  observer.observe(counter);
+})();
