@@ -87,13 +87,6 @@
   form.addEventListener("submit", (event) => {
     if (sending) { event.preventDefault(); return; }
 
-    // Honeypot: não enviar para o provedor quando preenchido.
-    if (String(form.elements.namedItem("_honey").value).trim()) {
-      event.preventDefault();
-      showStatus("Não foi possível processar sua solicitação.", "error");
-      return;
-    }
-
     attempted = true;
     const firstInvalid = validate();
     if (firstInvalid) {
