@@ -246,6 +246,20 @@ main#conteudo > section#como-funciona{background:#FFFFFF!important;padding:72px 
   #como-funciona .process-intro h2{font-size:clamp(1.95rem,7vw,2.45rem)}
   #como-funciona .process-desktop-break{display:none}
 }
+
+/* Depoimentos no mesmo tom da seção Plataforma / Diferenciais da Help. */
+section#depoimentos:not(#inicio):not(#diferenciais):not(#contato){background:radial-gradient(ellipse at top right,rgba(102,45,111,.5) 0,transparent 53%),linear-gradient(125deg,#151027,#241437 85%)!important;color:#FFFFFF!important;border-top:1px solid rgba(255,255,255,.15);border-bottom:1px solid rgba(255,255,255,.13)}
+section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFFFF!important}
+#depoimentos .testimonial-kicker{color:var(--lime)!important}
+#depoimentos .testimonial-intro{color:#D3CDE0!important}
+#depoimentos .testimonial-disclaimer{color:#E8E0ED!important;border:1px solid rgba(146,255,39,.22);background:rgba(255,255,255,.045)}
+#depoimentos .testimonial-card{border-color:#DDD5E6;box-shadow:0 15px 32px rgba(6,3,17,.22)}
+#depoimentos .testimonial-avatar{background:#29193E;color:#B4FF6B}
+#depoimentos .testimonial-position{color:#D3CDE0}
+#depoimentos .testimonial-arrow{background:#FFFFFF;color:#29193E;border-color:#C7B5D8}
+#depoimentos .testimonial-arrow:hover:not(:disabled){background:var(--lime);color:#15251B;border-color:var(--lime)}
+#depoimentos .testimonial-dot{background:#9786AD}
+#depoimentos .testimonial-dot[aria-current="true"]{background:var(--lime)}
 </style></head>
 <body>
 <div id="site-announcement">SITE EM HOMOLOGAÇÃO • CONTEÚDO SUJEITO À APROVAÇÃO DA HELP SOLUÇÕES</div>
@@ -447,6 +461,65 @@ main#conteudo > section#como-funciona{background:#FFFFFF!important;padding:72px 
 <p style="margin:0;font-size:18px;color:#334155;text-wrap:pretty">A Help Soluções em Suporte atua no apoio técnico e operacional do varejo. Nossa proposta combina atendimento próximo, informação e orientação às rotinas de lojas, franquias e equipes administrativas. O serviço é dimensionado conforme os sistemas, processos e necessidades de cada operação.</p>
 </div>
 </section>
+<section id="depoimentos" class="help-testimonials" aria-labelledby="depoimentos-titulo">
+  <div class="testimonial-shell">
+    <div class="testimonial-heading">
+      <div>
+        <p class="testimonial-kicker">EXEMPLOS DE DEPOIMENTOS</p>
+        <h2 id="depoimentos-titulo">O que dizem sobre a Help</h2>
+        <p class="testimonial-intro">Uma prévia de como os depoimentos de clientes poderão aparecer aqui.</p>
+      </div>
+      <p class="testimonial-disclaimer"><strong>Conteúdo fictício:</strong> estes seis depoimentos são exemplos para testar o visual. Não são avaliações reais de clientes.</p>
+    </div>
+    <div id="testimonial-track" class="testimonial-track" role="region" aria-roledescription="carrossel" aria-label="Seis depoimentos fictícios para demonstração" tabindex="0">
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 1 de 6">
+        <span class="testimonial-card-label">TESTE 01 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“O acompanhamento dos chamados ficou mais fácil de entender. É bom ter as solicitações organizadas em um só lugar.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">CR</span><div><strong>Camila Ribeiro</strong><span>Gestão de loja · Personagem fictício</span></div></div>
+      </article>
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 2 de 6">
+        <span class="testimonial-card-label">TESTE 02 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“Quando surge alguma dúvida no caixa, ter um canal claro para pedir orientação faz diferença na rotina.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">RM</span><div><strong>Rodrigo Martins</strong><span>Operação de franquia · Personagem fictício</span></div></div>
+      </article>
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 3 de 6">
+        <span class="testimonial-card-label">TESTE 03 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“Gostei da ideia de registrar os atendimentos e consultar depois o que foi combinado. Ajuda a manter a equipe alinhada.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">FA</span><div><strong>Fernanda Alves</strong><span>Equipe administrativa · Personagem fictício</span></div></div>
+      </article>
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 4 de 6">
+        <span class="testimonial-card-label">TESTE 04 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“Em operações com várias unidades, acompanhar cada solicitação separadamente ajuda a não perder informações.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">BC</span><div><strong>Bruno Carvalho</strong><span>Coordenação de lojas · Personagem fictício</span></div></div>
+      </article>
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 5 de 6">
+        <span class="testimonial-card-label">TESTE 05 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“Ter apoio para dúvidas do dia a dia, como cadastros e estoque, deixa o trabalho mais organizado.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">PN</span><div><strong>Patrícia Nunes</strong><span>Rotinas fiscais e estoque · Personagem fictício</span></div></div>
+      </article>
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 6 de 6">
+        <span class="testimonial-card-label">TESTE 06 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“A proposta de um atendimento próximo, que entende a realidade das lojas, é o tipo de suporte que buscamos.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">LC</span><div><strong>Leonardo Costa</strong><span>Suporte à operação · Personagem fictício</span></div></div>
+      </article>
+    </div>
+    <div class="testimonial-controls" hidden>
+      <div class="testimonial-buttons">
+        <button type="button" class="testimonial-arrow testimonial-prev" aria-controls="testimonial-track" aria-label="Depoimento anterior" disabled><span aria-hidden="true">←</span></button>
+        <button type="button" class="testimonial-arrow testimonial-next" aria-controls="testimonial-track" aria-label="Próximo depoimento"><span aria-hidden="true">→</span></button>
+      </div>
+      <div class="testimonial-dots" aria-label="Navegação dos depoimentos">
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 1" aria-current="true"></button>
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 2"></button>
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 3"></button>
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 4"></button>
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 5"></button>
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 6"></button>
+      </div>
+      <span class="testimonial-position" role="status" aria-live="polite">6 depoimentos fictícios de demonstração</span>
+    </div>
+  </div>
+</section>
 <section aria-labelledby="faq-titulo" id="faq" style="background:#F5F7FB;padding:96px 24px">
 <div style="max-width:820px;margin:0 auto;display:grid;gap:32px">
 <h2 id="faq-titulo" style="margin:0;font-size:clamp(1.9rem,3.6vw,2.4rem);line-height:1.15;font-weight:800;letter-spacing:-0.02em">Perguntas frequentes</h2>
@@ -580,65 +653,7 @@ main#conteudo > section#como-funciona{background:#FFFFFF!important;padding:72px 
 </div>
 </section>
 
-<section id="depoimentos" class="help-testimonials" aria-labelledby="depoimentos-titulo">
-  <div class="testimonial-shell">
-    <div class="testimonial-heading">
-      <div>
-        <p class="testimonial-kicker">EXEMPLOS DE DEPOIMENTOS</p>
-        <h2 id="depoimentos-titulo">O que dizem sobre a Help</h2>
-        <p class="testimonial-intro">Uma prévia de como os depoimentos de clientes poderão aparecer aqui.</p>
-      </div>
-      <p class="testimonial-disclaimer"><strong>Conteúdo fictício:</strong> estes seis depoimentos são exemplos para testar o visual. Não são avaliações reais de clientes.</p>
-    </div>
-    <div id="testimonial-track" class="testimonial-track" role="region" aria-roledescription="carrossel" aria-label="Seis depoimentos fictícios para demonstração" tabindex="0">
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 1 de 6">
-        <span class="testimonial-card-label">TESTE 01 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“O acompanhamento dos chamados ficou mais fácil de entender. É bom ter as solicitações organizadas em um só lugar.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">CR</span><div><strong>Camila Ribeiro</strong><span>Gestão de loja · Personagem fictício</span></div></div>
-      </article>
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 2 de 6">
-        <span class="testimonial-card-label">TESTE 02 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“Quando surge alguma dúvida no caixa, ter um canal claro para pedir orientação faz diferença na rotina.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">RM</span><div><strong>Rodrigo Martins</strong><span>Operação de franquia · Personagem fictício</span></div></div>
-      </article>
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 3 de 6">
-        <span class="testimonial-card-label">TESTE 03 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“Gostei da ideia de registrar os atendimentos e consultar depois o que foi combinado. Ajuda a manter a equipe alinhada.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">FA</span><div><strong>Fernanda Alves</strong><span>Equipe administrativa · Personagem fictício</span></div></div>
-      </article>
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 4 de 6">
-        <span class="testimonial-card-label">TESTE 04 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“Em operações com várias unidades, acompanhar cada solicitação separadamente ajuda a não perder informações.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">BC</span><div><strong>Bruno Carvalho</strong><span>Coordenação de lojas · Personagem fictício</span></div></div>
-      </article>
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 5 de 6">
-        <span class="testimonial-card-label">TESTE 05 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“Ter apoio para dúvidas do dia a dia, como cadastros e estoque, deixa o trabalho mais organizado.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">PN</span><div><strong>Patrícia Nunes</strong><span>Rotinas fiscais e estoque · Personagem fictício</span></div></div>
-      </article>
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 6 de 6">
-        <span class="testimonial-card-label">TESTE 06 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“A proposta de um atendimento próximo, que entende a realidade das lojas, é o tipo de suporte que buscamos.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">LC</span><div><strong>Leonardo Costa</strong><span>Suporte à operação · Personagem fictício</span></div></div>
-      </article>
-    </div>
-    <div class="testimonial-controls" hidden>
-      <div class="testimonial-buttons">
-        <button type="button" class="testimonial-arrow testimonial-prev" aria-controls="testimonial-track" aria-label="Depoimento anterior" disabled><span aria-hidden="true">←</span></button>
-        <button type="button" class="testimonial-arrow testimonial-next" aria-controls="testimonial-track" aria-label="Próximo depoimento"><span aria-hidden="true">→</span></button>
-      </div>
-      <div class="testimonial-dots" aria-label="Navegação dos depoimentos">
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 1" aria-current="true"></button>
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 2"></button>
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 3"></button>
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 4"></button>
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 5"></button>
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 6"></button>
-      </div>
-      <span class="testimonial-position" role="status" aria-live="polite">6 depoimentos fictícios de demonstração</span>
-    </div>
-  </div>
-</section>
+
 </main>
 <footer class="helpv2-footer"><div class="helpv2-footer-grid"><div class="helpv2-foot-brand"><a href="#inicio"><img src="assets/help-logo-leao-v2-transparente.png" alt="HELP Soluções em Suporte" width="230" height="154" loading="lazy"></a><p>Suporte técnico e operacional para lojas, franquias e equipes administrativas.</p></div><div><strong>Serviços</strong><nav aria-label="Serviços"><a href="#servicos">Lojas e PDV</a><a href="#servicos">Franquias</a><a href="#servicos">Administrativo e processos</a></nav></div><div><strong>Institucional</strong><nav aria-label="Institucional"><a href="#diferenciais">Diferenciais</a><a href="#como-funciona">Como funciona</a><a href="#faq">Perguntas</a></nav></div><div><strong>Contato</strong><nav aria-label="Contato"><a href="https://wa.me/5551981483515" target="_blank" rel="noopener noreferrer">WhatsApp (51) 98148-3515</a><a href="mailto:helpsolucoesemsuporte@gmail.com">helpsolucoesemsuporte@gmail.com</a><a href="privacidade.html">Política de privacidade</a></nav></div></div><div class="helpv2-footer-meta"><p>© 2026 Help Soluções. Todos os direitos reservados.</p><p>As marcas e sistemas mencionados pertencem a seus respectivos titulares; não há vínculo comercial presumido.</p></div></footer>
 </div>
