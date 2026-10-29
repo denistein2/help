@@ -7,7 +7,7 @@ import sharp from "sharp";
 // Source integrity is a release gate. When approved public files change,
 // update these Git blob IDs in the same reviewed PR.
 const expectedBlobs = {
-  "index.html": "5380fde92e92bf70c067a110d0da840488c64c01",
+  "index.html": "04f4b73379b882d81cd5c7b1a40c5341e5ba976b",
   "script.js": "a637d34610567cccd090551b3523501566dfffbd",
   "privacidade.html": "aa453a39b71a968120d484976308edb52d48d66d",
   "obrigado.html": "bb73dbb79f27bae84d6b4fea49a508132227eaab",
