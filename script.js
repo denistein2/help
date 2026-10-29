@@ -215,3 +215,63 @@
 
   observer.observe(counter);
 })();
+
+/* Depoimentos fictícios: controles opcionais; o track continua rolável sem JS. */
+(() => {
+  "use strict";
+  const section = document.getElementById("depoimentos");
+  if (!section) return;
+  const track = section.querySelector(".testimonial-track");
+  const slides = Array.from(section.querySelectorAll(".testimonial-card"));
+  const nav = section.querySelector(".testimonial-controls");
+  const prev = section.querySelector(".testimonial-prev");
+  const next = section.querySelector(".testimonial-next");
+  const dots = Array.from(section.querySelectorAll(".testimonial-dot"));
+  const position = section.querySelector(".testimonial-position");
+  if (!track || !nav || !prev || !next || !position || slides.length !== dots.length) return;
+
+  const visibleCount = () => Math.max(1, Math.min(slides.length,
+    Math.round((track.clientWidth + 20) / (slides[0].getBoundingClientRect().width + 20))));
+  const maxStart = () => Math.max(0, slides.length - visibleCount());
+  const offset = (slide) => slide.offsetLeft - slides[0].offsetLeft;
+  const currentStart = () => {
+    const x = track.scrollLeft;
+    let closest = 0;
+    for (let i = 1; i <= maxStart(); i++) {
+      if (Math.abs(offset(slides[i]) - x) < Math.abs(offset(slides[closest]) - x)) closest = i;
+    }
+    return closest;
+  };
+  const update = () => {
+    const start = currentStart();
+    const visible = visibleCount();
+    prev.disabled = start === 0;
+    next.disabled = start >= maxStart();
+    dots.forEach((dot, i) => {
+      dot.hidden = i > maxStart();
+      if (i === start) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
+    });
+    position.textContent = visible === 1
+      ? `Depoimento ${start + 1} de ${slides.length}`
+      : `Depoimentos ${start + 1}–${Math.min(slides.length, start + visible)} de ${slides.length}`;
+  };
+  const goTo = (index) => {
+    const i = Math.max(0, Math.min(maxStart(), index));
+    const reducedMotion = window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    track.scrollTo({ left: offset(slides[i]), behavior: reducedMotion ? "auto" : "smooth" });
+  };
+  prev.addEventListener("click", () => goTo(currentStart() - 1));
+  next.addEventListener("click", () => goTo(currentStart() + 1));
+  dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
+  track.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update, { passive: true });
+  track.addEventListener("keydown", (event) => {
+    if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+    event.preventDefault();
+    goTo(currentStart() + (event.key === "ArrowRight" ? 1 : -1));
+  });
+  nav.hidden = false;
+  update();
+})();

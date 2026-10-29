@@ -182,6 +182,38 @@ main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:28px!i
 @media(max-width:780px){#inicio .hero-copy{gap:18px}#inicio h1{font-size:clamp(2.15rem,6vw,3.15rem)!important}}
 @media(max-width:480px){#inicio h1{font-size:clamp(2rem,8vw,2.5rem)!important}#inicio .hero-actions{display:grid;grid-template-columns:minmax(0,1fr)}#inicio .hero-actions a{width:100%;padding-inline:14px!important}}
 @media(prefers-reduced-motion:reduce){#inicio .hero-actions a{transition:none!important}}
+
+/* Depoimentos de demonstração: sem avaliações reais nesta etapa */
+#depoimentos{background:#F3F0FA!important;color:#1C1731!important;border-top:1px solid #E2DCEA}
+main#conteudo > section#depoimentos{padding:66px 24px 72px!important}
+#depoimentos .testimonial-shell{max-width:1160px;margin:0 auto;min-width:0}
+#depoimentos .testimonial-heading{display:grid;gap:16px;margin-bottom:24px}
+#depoimentos .testimonial-kicker{margin:0;color:#087E7B;font-size:12px;font-weight:800;letter-spacing:.14em}
+#depoimentos h2{margin:0;font-size:clamp(1.85rem,3.5vw,2.6rem);line-height:1.18;font-weight:800;letter-spacing:-.025em;color:#1C1731}
+#depoimentos .testimonial-intro{margin:10px 0 0;color:#5A576D;font-size:16px;line-height:1.55}
+#depoimentos .testimonial-disclaimer{margin:0;display:inline-block;width:fit-content;max-width:100%;font-size:13px;line-height:1.55;color:#4E3675;border:1px solid #D8C8F3;background:#EEE6FB;padding:10px 14px;border-radius:11px}
+#depoimentos .testimonial-track{display:flex;gap:20px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-padding-inline:1px;padding:4px 2px 18px;min-width:0}
+#depoimentos .testimonial-track::-webkit-scrollbar{display:none}
+#depoimentos .testimonial-card{flex:0 0 calc((100% - 20px)/2);min-width:0;min-height:255px;display:flex;flex-direction:column;gap:18px;scroll-snap-align:start;background:#FFFFFF;border:1px solid #E1DAEE;border-radius:20px;padding:26px;box-shadow:0 9px 28px rgba(25,13,45,.065)}
+#depoimentos .testimonial-card-label{align-self:flex-start;border-radius:100px;padding:5px 11px;font-size:10px;font-weight:800;letter-spacing:.09em;background:#F1EAFB;color:#5F3E8E}
+#depoimentos .testimonial-quote{margin:0;flex:1;font-size:clamp(1rem,1.3vw,1.13rem);line-height:1.65;color:#282239;font-weight:600}
+#depoimentos .testimonial-person{display:flex;align-items:center;gap:12px;padding-top:17px;border-top:1px solid #EEEAF3}
+#depoimentos .testimonial-avatar{width:42px;height:42px;border-radius:50%;flex:none;display:grid;place-items:center;background:#29193E;color:#B4FF6B;font-size:13px;font-weight:800}
+#depoimentos .testimonial-person strong{display:block;font-size:14px;color:#1D1631}
+#depoimentos .testimonial-person div>span{display:block;font-size:12px;color:#666178;line-height:1.5}
+#depoimentos .testimonial-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:8px}
+#depoimentos .testimonial-controls[hidden]{display:none!important}
+#depoimentos .testimonial-buttons{display:flex;gap:10px}
+#depoimentos .testimonial-arrow{width:44px;height:44px;border-radius:50%;border:1px solid #CABFDB;background:white;color:#231733;font-size:21px;cursor:pointer;display:grid;place-items:center}
+#depoimentos .testimonial-arrow:hover:not(:disabled){background:#251736;color:#A9FF48;border-color:#251736}
+#depoimentos .testimonial-arrow:disabled{opacity:.38;cursor:not-allowed}
+#depoimentos .testimonial-dots{display:flex;align-items:center;gap:8px}
+#depoimentos .testimonial-dot{width:10px;height:10px;padding:0;border:0;border-radius:100px;background:#B9ACC9;cursor:pointer}
+#depoimentos .testimonial-dot[aria-current="true"]{width:24px;background:#56317A}
+#depoimentos .testimonial-dot[hidden]{display:none!important}
+#depoimentos .testimonial-position{font-size:12px;font-weight:700;color:#676079}
+@media(max-width:760px){main#conteudo > section#depoimentos{padding:42px 20px 50px!important}#depoimentos .testimonial-card{flex-basis:100%;padding:21px;min-height:250px}#depoimentos .testimonial-controls{justify-content:center}#depoimentos .testimonial-position{width:100%;text-align:center}}
+@media(prefers-reduced-motion:reduce){#depoimentos .testimonial-track{scroll-behavior:auto}}
 </style></head>
 <body>
 <div id="site-announcement">SITE EM HOMOLOGAÇÃO • CONTEÚDO SUJEITO À APROVAÇÃO DA HELP SOLUÇÕES</div>
@@ -510,6 +542,66 @@ main#conteudo > section[id]:not(#inicio) > div[style*="display:grid"]{gap:28px!i
 
     </form>
 </div>
+</section>
+
+<section id="depoimentos" class="help-testimonials" aria-labelledby="depoimentos-titulo">
+  <div class="testimonial-shell">
+    <div class="testimonial-heading">
+      <div>
+        <p class="testimonial-kicker">EXEMPLOS DE DEPOIMENTOS</p>
+        <h2 id="depoimentos-titulo">O que dizem sobre a Help</h2>
+        <p class="testimonial-intro">Uma prévia de como os depoimentos de clientes poderão aparecer aqui.</p>
+      </div>
+      <p class="testimonial-disclaimer"><strong>Conteúdo fictício:</strong> estes seis depoimentos são exemplos para testar o visual. Não são avaliações reais de clientes.</p>
+    </div>
+    <div id="testimonial-track" class="testimonial-track" role="region" aria-roledescription="carrossel" aria-label="Seis depoimentos fictícios para demonstração" tabindex="0">
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 1 de 6">
+        <span class="testimonial-card-label">TESTE 01 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“O acompanhamento dos chamados ficou mais fácil de entender. É bom ter as solicitações organizadas em um só lugar.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">CR</span><div><strong>Camila Ribeiro</strong><span>Gestão de loja · Personagem fictício</span></div></div>
+      </article>
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 2 de 6">
+        <span class="testimonial-card-label">TESTE 02 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“Quando surge alguma dúvida no caixa, ter um canal claro para pedir orientação faz diferença na rotina.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">RM</span><div><strong>Rodrigo Martins</strong><span>Operação de franquia · Personagem fictício</span></div></div>
+      </article>
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 3 de 6">
+        <span class="testimonial-card-label">TESTE 03 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“Gostei da ideia de registrar os atendimentos e consultar depois o que foi combinado. Ajuda a manter a equipe alinhada.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">FA</span><div><strong>Fernanda Alves</strong><span>Equipe administrativa · Personagem fictício</span></div></div>
+      </article>
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 4 de 6">
+        <span class="testimonial-card-label">TESTE 04 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“Em operações com várias unidades, acompanhar cada solicitação separadamente ajuda a não perder informações.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">BC</span><div><strong>Bruno Carvalho</strong><span>Coordenação de lojas · Personagem fictício</span></div></div>
+      </article>
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 5 de 6">
+        <span class="testimonial-card-label">TESTE 05 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“Ter apoio para dúvidas do dia a dia, como cadastros e estoque, deixa o trabalho mais organizado.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">PN</span><div><strong>Patrícia Nunes</strong><span>Rotinas fiscais e estoque · Personagem fictício</span></div></div>
+      </article>
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 6 de 6">
+        <span class="testimonial-card-label">TESTE 06 · FICTÍCIO</span>
+        <blockquote class="testimonial-quote">“A proposta de um atendimento próximo, que entende a realidade das lojas, é o tipo de suporte que buscamos.”</blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">LC</span><div><strong>Leonardo Costa</strong><span>Suporte à operação · Personagem fictício</span></div></div>
+      </article>
+    </div>
+    <div class="testimonial-controls" hidden>
+      <div class="testimonial-buttons">
+        <button type="button" class="testimonial-arrow testimonial-prev" aria-controls="testimonial-track" aria-label="Depoimento anterior" disabled><span aria-hidden="true">←</span></button>
+        <button type="button" class="testimonial-arrow testimonial-next" aria-controls="testimonial-track" aria-label="Próximo depoimento"><span aria-hidden="true">→</span></button>
+      </div>
+      <div class="testimonial-dots" aria-label="Navegação dos depoimentos">
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 1" aria-current="true"></button>
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 2"></button>
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 3"></button>
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 4"></button>
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 5"></button>
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 6"></button>
+      </div>
+      <span class="testimonial-position" role="status" aria-live="polite">6 depoimentos fictícios de demonstração</span>
+    </div>
+  </div>
 </section>
 </main>
 <footer class="helpv2-footer"><div class="helpv2-footer-grid"><div class="helpv2-foot-brand"><a href="#inicio"><img src="assets/help-logo-leao-v2-transparente.png" alt="HELP Soluções em Suporte" width="230" height="154" loading="lazy"></a><p>Suporte técnico e operacional para lojas, franquias e equipes administrativas.</p></div><div><strong>Serviços</strong><nav aria-label="Serviços"><a href="#servicos">Lojas e PDV</a><a href="#servicos">Franquias</a><a href="#servicos">Administrativo e processos</a></nav></div><div><strong>Institucional</strong><nav aria-label="Institucional"><a href="#diferenciais">Diferenciais</a><a href="#como-funciona">Como funciona</a><a href="#faq">Perguntas</a></nav></div><div><strong>Contato</strong><nav aria-label="Contato"><a href="https://wa.me/5551981483515" target="_blank" rel="noopener noreferrer">WhatsApp (51) 98148-3515</a><a href="mailto:helpsolucoesemsuporte@gmail.com">helpsolucoesemsuporte@gmail.com</a><a href="privacidade.html">Política de privacidade</a></nav></div></div><div class="helpv2-footer-meta"><p>© 2026 Help Soluções. Todos os direitos reservados.</p><p>As marcas e sistemas mencionados pertencem a seus respectivos titulares; não há vínculo comercial presumido.</p></div></footer>
