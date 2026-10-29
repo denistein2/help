@@ -269,7 +269,26 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
 #depoimentos .testimonial-quote-real p{margin:0 0 12px}
 #depoimentos .testimonial-quote-real p:last-child{margin-bottom:0}
 @media(max-width:760px){#depoimentos .testimonial-card{width:100%;padding:22px;gap:18px}}
-</style></head>
+</style>
+<style id="help-mobile-nav-audit-zero">
+/* Mobile: navegação compacta com uma única linha, rolável por toque ou teclado. */
+@media (max-width:760px) {
+  header .site-header-inner { gap:8px!important; padding:8px 14px!important; }
+  header .site-brand { flex:0 0 auto!important; }
+  header .helpv2-head-logo { width:122px!important; }
+  header .site-cta { margin-left:auto!important; font-size:12px!important; padding:10px 12px!important; }
+  header .site-nav {
+    order:3; display:flex!important; flex:0 0 100%; width:100%; min-width:0;
+    flex-wrap:nowrap!important; justify-content:flex-start!important;
+    gap:18px!important; overflow-x:auto!important; overflow-y:hidden!important;
+    padding:4px 2px 8px!important; white-space:nowrap;
+    -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain;
+    scrollbar-width:thin; scrollbar-color:rgba(146,255,39,.45) transparent;
+  }
+  header .site-nav a { flex:0 0 auto; font-size:13px!important; padding:3px 0; }
+}
+</style>
+</head>
 <body>
 <div style="min-height:100vh;background:#fff;font-family:Manrope,system-ui,sans-serif">
 <a href="#conteudo" onblur="this.style.left='-9999px'" onfocus="this.style.left='16px'" style="position:absolute;left:-9999px;top:8px;background:#fff;padding:8px 12px;z-index:99">Pular para o conteúdo</a>
@@ -279,7 +298,7 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
 <nav aria-label="Principal" class="site-nav" style="display:flex;flex-wrap:wrap;gap:6px 22px;align-items:center">
 <a href="#servicos" style="color:#0B1730;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap">Serviços</a>
 <a href="#plataforma" style="color:#0B1730;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap">Plataforma</a>
-<a href="#diferenciais" style="color:#0B1730;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap">Diferenciais</a>
+<a href="#diferenciais-conteudo" style="color:#0B1730;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap">Diferenciais</a>
 <a href="#como-funciona" style="color:#0B1730;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap">Como funciona</a>
 <a href="#faq" style="color:#0B1730;text-decoration:none;font-size:15px;font-weight:600;white-space:nowrap">Perguntas</a>
 </nav>
@@ -377,7 +396,7 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
   <a class="milldesk-feature-button" href="https://helpsuporte.milldesk.com" target="_blank" rel="noopener noreferrer">Nossa Plataforma <span aria-hidden="true">↗</span></a>
 </div>
 <div style="max-width:1160px;margin:0 auto;display:grid;gap:48px">
-<div class="help-diff-heading">
+<div id="diferenciais-conteudo" class="help-diff-heading" tabindex="-1">
 <div class="help-diff-heading-copy">
 <p style="margin:0;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#5EEAD4">Por que escolher a Help?</p>
 <h2 id="dif-titulo" style="margin:0;font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.15;font-weight:800;letter-spacing:-0.02em;text-wrap:balance">Atendimento com empatia, agilidade e senso de prioridade.</h2>
@@ -621,7 +640,7 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
 
 
 </main>
-<footer class="helpv2-footer"><div class="helpv2-footer-grid"><div class="helpv2-foot-brand"><a href="#inicio"><picture><source type="image/webp" srcset="assets/help-logo-leao-footer-420.webp 420w, assets/help-logo-leao-footer-720.webp 720w" sizes="230px"><img src="assets/help-logo-leao-fallback-960.png" alt="HELP Soluções em Suporte" width="230" height="154" loading="lazy" decoding="async"></picture></a><p>Suporte técnico e operacional para lojas, franquias e equipes administrativas.</p></div><div><strong>Serviços</strong><nav aria-label="Serviços"><a href="#servicos">Lojas e PDV</a><a href="#servicos">Franquias</a><a href="#servicos">Administrativo e processos</a></nav></div><div><strong>Institucional</strong><nav aria-label="Institucional"><a href="#diferenciais">Diferenciais</a><a href="#como-funciona">Como funciona</a><a href="#faq">Perguntas</a></nav></div><div><strong>Contato</strong><nav aria-label="Contato"><a href="https://wa.me/5551981483515" target="_blank" rel="noopener noreferrer">WhatsApp (51) 98148-3515</a><a href="mailto:helpsolucoesemsuporte@gmail.com">helpsolucoesemsuporte@gmail.com</a><a href="privacidade.html">Política de privacidade</a></nav></div></div><div class="helpv2-footer-meta"><p>© 2026 Help Soluções. Todos os direitos reservados.</p><p>As marcas e sistemas mencionados pertencem a seus respectivos titulares; não há vínculo comercial presumido.</p></div></footer>
+<footer class="helpv2-footer"><div class="helpv2-footer-grid"><div class="helpv2-foot-brand"><a href="#inicio"><picture><source type="image/webp" srcset="assets/help-logo-leao-footer-420.webp 420w, assets/help-logo-leao-footer-720.webp 720w" sizes="230px"><img src="assets/help-logo-leao-fallback-960.png" alt="HELP Soluções em Suporte" width="230" height="154" loading="lazy" decoding="async"></picture></a><p>Suporte técnico e operacional para lojas, franquias e equipes administrativas.</p></div><div><strong>Serviços</strong><nav aria-label="Serviços"><a href="#servicos">Lojas e PDV</a><a href="#servicos">Franquias</a><a href="#servicos">Administrativo e processos</a></nav></div><div><strong>Institucional</strong><nav aria-label="Institucional"><a href="#diferenciais-conteudo">Diferenciais</a><a href="#como-funciona">Como funciona</a><a href="#faq">Perguntas</a></nav></div><div><strong>Contato</strong><nav aria-label="Contato"><a href="https://wa.me/5551981483515" target="_blank" rel="noopener noreferrer">WhatsApp (51) 98148-3515</a><a href="mailto:helpsolucoesemsuporte@gmail.com">helpsolucoesemsuporte@gmail.com</a><a href="privacidade.html">Política de privacidade</a></nav></div></div><div class="helpv2-footer-meta"><p>© 2026 Help Soluções. Todos os direitos reservados.</p><p>As marcas e sistemas mencionados pertencem a seus respectivos titulares; não há vínculo comercial presumido.</p></div></footer>
 </div>
 <a aria-label="Falar com a Help no WhatsApp (nova aba)" class="whatsapp-float" href="https://wa.me/5551981483515?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Help%20Solu%C3%A7%C3%B5es." rel="noopener noreferrer" target="_blank">✆  WhatsApp</a></body>
 </html>
