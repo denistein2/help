@@ -40,7 +40,6 @@
   };
 
   let attempted = false;
-  let sending = false;
 
   function fieldIsValid(name, field) {
     const value = field.type === "checkbox" ? field.checked : field.value.trim();
@@ -72,44 +71,43 @@
 
   function showStatus(message, type = "info") {
     status.textContent = message;
-    status.style.color = type === "error" ? "#B91C1C" : type === "success" ? "#0F766E" : "#475569";
+    status.style.color = type === "error" ? "#B91C1C" : "#475569";
     status.setAttribute("aria-live", type === "error" ? "assertive" : "polite");
   }
 
-  function setSending(value) {
-    sending = value;
-    submitButton.disabled = value;
-    submitButton.textContent = value ? "Enviando solicitação…" : "Solicitar contato comercial";
-    submitButton.style.cursor = value ? "wait" : "pointer";
-    submitButton.style.opacity = value ? "0.75" : "1";
-  }
-
-  form.addEventListener("submit", (event) => {
-    if (sending) { event.preventDefault(); return; }
-
+  function handleContact(event) {
+    if (event) event.preventDefault();
     attempted = true;
     const firstInvalid = validate();
     if (firstInvalid) {
-      event.preventDefault();
-      showStatus("Confira os campos destacados antes de enviar.", "error");
+      showStatus("Confira os campos destacados antes de continuar.", "error");
       firstInvalid.focus();
       return;
     }
 
-    // Preferir POST HTML nativo: evita a dependência de AJAX cross-origin.
-    // O próprio FormSubmit apresenta confirmação, ativação ou captcha.
-    // Não afirmar sucesso até a confirmação externa e o recebimento do e-mail.
-    setSending(true);
-    showStatus("Abrindo a confirmação do serviço de formulários…");
-    // Sem preventDefault: o navegador envia pelo action HTTPS existente.
-  });
+    const get = name => form.elements.namedItem(name).value.trim();
+    const storeLabels = { "1": "1 loja", "2-5": "2 a 5 lojas", "6-20": "6 a 20 lojas", "21+": "Mais de 20 lojas" };
+    const message = [
+      "Olá, Help! Gostaria de solicitar contato comercial pelo site.",
+      "",
+      "Responsável: " + get("nome"),
+      "Empresa: " + get("empresa"),
+      "E-mail: " + get("email"),
+      "WhatsApp: " + get("whatsapp"),
+      "Lojas: " + (storeLabels[get("lojas")] || get("lojas")),
+      "Sistema: " + get("sistema"),
+      "Necessidade: " + get("necessidade").slice(0, 2000)
+    ].join("\n");
 
-  form.addEventListener("input", () => {
-    if (attempted && !sending) validate();
-  });
-  form.addEventListener("change", () => {
-    if (attempted && !sending) validate();
-  });
+    // Prepara o contato: envio somente após confirmação do visitante no WhatsApp.
+    showStatus("Abrindo o WhatsApp. Confirme o envio da mensagem para concluir.");
+    window.location.assign("https://wa.me/5551981483515?text=" + encodeURIComponent(message));
+  }
+
+  submitButton.addEventListener("click", handleContact);
+  form.addEventListener("submit", handleContact);
+  form.addEventListener("input", () => { if (attempted) validate(); });
+  form.addEventListener("change", () => { if (attempted) validate(); });
 })();
 
 /* Contador de atendimentos: uma animação ao entrar em tela, com acessibilidade. */
