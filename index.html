@@ -260,6 +260,11 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
 #depoimentos .testimonial-arrow:hover:not(:disabled){background:var(--lime);color:#15251B;border-color:var(--lime)}
 #depoimentos .testimonial-dot{background:#9786AD}
 #depoimentos .testimonial-dot[aria-current="true"]{background:var(--lime)}
+
+/* Depoimento recebido: destaque sutil e parágrafos preservados. */
+#depoimentos .testimonial-card-label-real{background:#E9F5EC;color:#23603A}
+#depoimentos .testimonial-quote-real p{margin:0 0 11px}
+#depoimentos .testimonial-quote-real p:last-child{margin-bottom:0}
 </style></head>
 <body>
 <div id="site-announcement">SITE EM HOMOLOGAÇÃO • CONTEÚDO SUJEITO À APROVAÇÃO DA HELP SOLUÇÕES</div>
@@ -467,15 +472,20 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
       <div>
         <p class="testimonial-kicker">EXEMPLOS DE DEPOIMENTOS</p>
         <h2 id="depoimentos-titulo">O que dizem sobre a Help</h2>
-        <p class="testimonial-intro">Uma prévia de como os depoimentos de clientes poderão aparecer aqui.</p>
+        <p class="testimonial-intro">Depoimento da franquia Jogê Sorocaba e prévias de outros relatos que poderão aparecer aqui.</p>
       </div>
-      <p class="testimonial-disclaimer"><strong>Conteúdo fictício:</strong> estes seis depoimentos são exemplos para testar o visual. Não são avaliações reais de clientes.</p>
+      <p class="testimonial-disclaimer"><strong>Em homologação:</strong> o depoimento de Cristiane foi fornecido para inclusão no site. Os outros cinco cartões ainda são exemplos fictícios, não avaliações reais.</p>
     </div>
-    <div id="testimonial-track" class="testimonial-track" role="region" aria-roledescription="carrossel" aria-label="Seis depoimentos fictícios para demonstração" tabindex="0">
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 1 de 6">
-        <span class="testimonial-card-label">TESTE 01 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“O acompanhamento dos chamados ficou mais fácil de entender. É bom ter as solicitações organizadas em um só lugar.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">CR</span><div><strong>Camila Ribeiro</strong><span>Gestão de loja · Personagem fictício</span></div></div>
+    <div id="testimonial-track" class="testimonial-track" role="region" aria-roledescription="carrossel" aria-label="Um depoimento fornecido e cinco exemplos fictícios" tabindex="0">
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento 1 de 6, Cristiane Dimitropoulos, Franquia Jogê Sorocaba">
+        <span class="testimonial-card-label testimonial-card-label-real">DEPOIMENTO 01 · FRANQUIA JOGÊ SOROCABA</span>
+        <blockquote class="testimonial-quote testimonial-quote-real">
+          <p>Mais do que atender chamados, a Help demonstra interesse em compreender nossas necessidades, é uma parceria importantíssima para nossa operação do dia a dia.</p>
+          <p>Profissionais atenciosos e qualificados que nos dão um suporte impecável sempre.</p>
+          <p>Ter um canal como esse, faz toda diferença em nossa rotina!</p>
+          <p>Obrigada a toda equipe Help!</p>
+        </blockquote>
+        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">CD</span><div><strong>Cristiane Dimitropoulos</strong><span>Franquia Jogê Sorocaba</span></div></div>
       </article>
       <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 2 de 6">
         <span class="testimonial-card-label">TESTE 02 · FICTÍCIO</span>
@@ -509,14 +519,14 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
         <button type="button" class="testimonial-arrow testimonial-next" aria-controls="testimonial-track" aria-label="Próximo depoimento"><span aria-hidden="true">→</span></button>
       </div>
       <div class="testimonial-dots" aria-label="Navegação dos depoimentos">
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 1" aria-current="true"></button>
+        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento de Cristiane Dimitropoulos" aria-current="true"></button>
         <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 2"></button>
         <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 3"></button>
         <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 4"></button>
         <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 5"></button>
         <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 6"></button>
       </div>
-      <span class="testimonial-position" role="status" aria-live="polite">6 depoimentos fictícios de demonstração</span>
+      <span class="testimonial-position" role="status" aria-live="polite">1 depoimento recebido · 5 exemplos fictícios</span>
     </div>
   </div>
 </section>
