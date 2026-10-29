@@ -84,7 +84,7 @@
     submitButton.style.opacity = value ? "0.75" : "1";
   }
 
-  form.addEventListener("submit", async (event) => {
+  form.addEventListener("submit", (event) => {
     if (sending) { event.preventDefault(); return; }
 
     // Honeypot: não enviar para o provedor quando preenchido.
@@ -104,12 +104,12 @@
     }
 
     // Preferir POST HTML nativo: evita a dependência de AJAX cross-origin.
-  // O próprio FormSubmit apresenta confirmação, ativação ou captcha.
-  // Não afirmar sucesso até a confirmação externa e o recebimento do e-mail.
-  setSending(true);
-  showStatus("Abrindo a confirmação do serviço de formulários…");
-  // NÃO chamar preventDefault: o navegador envia o formulário no action HTTPS já configurado.
-});
+    // O próprio FormSubmit apresenta confirmação, ativação ou captcha.
+    // Não afirmar sucesso até a confirmação externa e o recebimento do e-mail.
+    setSending(true);
+    showStatus("Abrindo a confirmação do serviço de formulários…");
+    // Sem preventDefault: o navegador envia pelo action HTTPS existente.
+  });
 
   form.addEventListener("input", () => {
     if (attempted && !sending) validate();
