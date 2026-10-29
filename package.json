@@ -1,0 +1,12 @@
+{
+  "name": "help-web",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Help Soluções - static website asset build",
+  "scripts": {
+    "build": "node scripts/build-images.mjs"
+  },
+  "dependencies": {
+    "sharp": "0.34.4"
+  }
+}
