@@ -552,10 +552,7 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
 <p style="margin:0;font-size:18px;color:#475569;text-wrap:pretty">Conte um pouco sobre sua empresa e vamos conversar sobre suas necessidades.</p>
 <p class="demo-disclaimer" style="margin:0;padding:14px 16px;border-left:3px solid #16A6A0;background:#F5F7FB;border-radius:8px;color:#334155;font-size:15px">O formulário envia informações ao e-mail comercial por um serviço externo. O recebimento depende da ativação inicial do endereço. Não envie senhas ou dados sensíveis.</p>
 <div class="preview-contact-links"><a href="https://wa.me/5551981483515?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20o%20suporte%20da%20Help%20Solu%C3%A7%C3%B5es." rel="noopener noreferrer" target="_blank">Conversar no WhatsApp ↗</a><a href="mailto:helpsolucoesemsuporte@gmail.com">helpsolucoesemsuporte@gmail.com</a></div></div>
-<form id="lead-form" action="https://formsubmit.co/helpsolucoesemsuporte@gmail.com" method="POST" style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:32px;display:grid;gap:18px;box-shadow:0 12px 32px rgba(11,23,48,0.07)" aria-label="Solicitar contato comercial">
-      <input type="hidden" name="_subject" value="Novo contato comercial — Site Help Soluções">
-      <input type="hidden" name="_template" value="table">
-
+<form id="lead-form" style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:32px;display:grid;gap:18px;box-shadow:0 12px 32px rgba(11,23,48,0.07)" aria-label="Solicitar contato comercial">
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px">
         <div style="display:grid;gap:6px">
           <label for="f-nome" style="font-weight:700;font-size:14px">Nome do responsável <span aria-hidden="true" style="color:#B91C1C">*</span></label>
@@ -612,15 +609,16 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
       <div style="display:grid;gap:6px">
         <label style="display:flex;gap:10px;align-items:flex-start;font-size:15px;color:#334155;cursor:pointer">
           <input required name="consent" type="checkbox" aria-describedby="e-consent" style="margin-top:5px;width:18px;height:18px;accent-color:#2563EB">
-          <span>Li as <a href="privacidade.html">informações de privacidade</a> e autorizo o envio dos dados informados para retorno comercial da Help, por meio do serviço FormSubmit. <span aria-hidden="true" style="color:#B91C1C">*</span></span>
+          <span>Li as <a href="privacidade.html">informações de privacidade</a> e autorizo o uso dos dados informados para preparar meu contato comercial com a Help pelo WhatsApp. <span aria-hidden="true" style="color:#B91C1C">*</span></span>
         </label>
         <span class="field-error" id="e-consent" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
       </div>
 
       <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
-        <button id="submit-lead" type="submit" style="background:#2563EB;color:#fff;border:0;font:inherit;font-weight:700;font-size:16px;padding:15px 24px;border-radius:12px;cursor:pointer">Solicitar contato comercial</button>
+        <button id="submit-lead" type="button" style="background:#2563EB;color:#fff;border:0;font:inherit;font-weight:700;font-size:16px;padding:15px 24px;border-radius:12px;cursor:pointer">Continuar pelo WhatsApp</button>
         <span id="form-status" role="status" style="font-size:14px;color:#475569"></span>
       </div>
+      <p style="margin:0;color:#475569;font-size:13px;line-height:1.6">O WhatsApp abrirá com os dados preenchidos. Sua solicitação só será enviada quando você confirmar a mensagem no aplicativo. <a href="https://wa.me/5551981483515" target="_blank" rel="noopener noreferrer">Prefere conversar diretamente?</a></p>
 
     </form>
 </div>
