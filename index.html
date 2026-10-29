@@ -265,6 +265,14 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
 #depoimentos .testimonial-card-label-real{background:#E9F5EC;color:#23603A}
 #depoimentos .testimonial-quote-real p{margin:0 0 11px}
 #depoimentos .testimonial-quote-real p:last-child{margin-bottom:0}
+
+/* Depoimento único: cartão sem navegação, bem dimensionado no desktop e mobile. */
+#depoimentos .testimonial-track{display:block;overflow:visible;padding:0;scroll-snap-type:none}
+#depoimentos .testimonial-card{width:min(100%,850px);max-width:100%;margin:0 auto;min-height:auto;display:flex;gap:22px;box-sizing:border-box}
+#depoimentos .testimonial-card-label-real{background:#E9F5EC;color:#23603A}
+#depoimentos .testimonial-quote-real p{margin:0 0 12px}
+#depoimentos .testimonial-quote-real p:last-child{margin-bottom:0}
+@media(max-width:760px){#depoimentos .testimonial-card{width:100%;padding:22px;gap:18px}}
 </style></head>
 <body>
 <div id="site-announcement">SITE EM HOMOLOGAÇÃO • CONTEÚDO SUJEITO À APROVAÇÃO DA HELP SOLUÇÕES</div>
@@ -470,15 +478,14 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
   <div class="testimonial-shell">
     <div class="testimonial-heading">
       <div>
-        <p class="testimonial-kicker">EXEMPLOS DE DEPOIMENTOS</p>
+        <p class="testimonial-kicker">DEPOIMENTO DE CLIENTE</p>
         <h2 id="depoimentos-titulo">O que dizem sobre a Help</h2>
-        <p class="testimonial-intro">Depoimento da franquia Jogê Sorocaba e prévias de outros relatos que poderão aparecer aqui.</p>
+        <p class="testimonial-intro">A experiência de quem conta com a Help na rotina da operação.</p>
       </div>
-      <p class="testimonial-disclaimer"><strong>Em homologação:</strong> o depoimento de Cristiane foi fornecido para inclusão no site. Os outros cinco cartões ainda são exemplos fictícios, não avaliações reais.</p>
     </div>
-    <div id="testimonial-track" class="testimonial-track" role="region" aria-roledescription="carrossel" aria-label="Um depoimento fornecido e cinco exemplos fictícios" tabindex="0">
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento 1 de 6, Cristiane Dimitropoulos, Franquia Jogê Sorocaba">
-        <span class="testimonial-card-label testimonial-card-label-real">DEPOIMENTO 01 · FRANQUIA JOGÊ SOROCABA</span>
+    <div class="testimonial-track">
+      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento de Cristiane Dimitropoulos, Franquia Jogê Sorocaba">
+        <span class="testimonial-card-label testimonial-card-label-real">DEPOIMENTO DE CLIENTE · JOGÊ SOROCABA</span>
         <blockquote class="testimonial-quote testimonial-quote-real">
           <p>Mais do que atender chamados, a Help demonstra interesse em compreender nossas necessidades, é uma parceria importantíssima para nossa operação do dia a dia.</p>
           <p>Profissionais atenciosos e qualificados que nos dão um suporte impecável sempre.</p>
@@ -487,46 +494,6 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
         </blockquote>
         <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">CD</span><div><strong>Cristiane Dimitropoulos</strong><span>Franquia Jogê Sorocaba</span></div></div>
       </article>
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 2 de 6">
-        <span class="testimonial-card-label">TESTE 02 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“Quando surge alguma dúvida no caixa, ter um canal claro para pedir orientação faz diferença na rotina.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">RM</span><div><strong>Rodrigo Martins</strong><span>Operação de franquia · Personagem fictício</span></div></div>
-      </article>
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 3 de 6">
-        <span class="testimonial-card-label">TESTE 03 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“Gostei da ideia de registrar os atendimentos e consultar depois o que foi combinado. Ajuda a manter a equipe alinhada.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">FA</span><div><strong>Fernanda Alves</strong><span>Equipe administrativa · Personagem fictício</span></div></div>
-      </article>
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 4 de 6">
-        <span class="testimonial-card-label">TESTE 04 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“Em operações com várias unidades, acompanhar cada solicitação separadamente ajuda a não perder informações.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">BC</span><div><strong>Bruno Carvalho</strong><span>Coordenação de lojas · Personagem fictício</span></div></div>
-      </article>
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 5 de 6">
-        <span class="testimonial-card-label">TESTE 05 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“Ter apoio para dúvidas do dia a dia, como cadastros e estoque, deixa o trabalho mais organizado.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">PN</span><div><strong>Patrícia Nunes</strong><span>Rotinas fiscais e estoque · Personagem fictício</span></div></div>
-      </article>
-      <article class="testimonial-card" role="group" aria-roledescription="slide" aria-label="Depoimento teste 6 de 6">
-        <span class="testimonial-card-label">TESTE 06 · FICTÍCIO</span>
-        <blockquote class="testimonial-quote">“A proposta de um atendimento próximo, que entende a realidade das lojas, é o tipo de suporte que buscamos.”</blockquote>
-        <div class="testimonial-person"><span class="testimonial-avatar" aria-hidden="true">LC</span><div><strong>Leonardo Costa</strong><span>Suporte à operação · Personagem fictício</span></div></div>
-      </article>
-    </div>
-    <div class="testimonial-controls" hidden>
-      <div class="testimonial-buttons">
-        <button type="button" class="testimonial-arrow testimonial-prev" aria-controls="testimonial-track" aria-label="Depoimento anterior" disabled><span aria-hidden="true">←</span></button>
-        <button type="button" class="testimonial-arrow testimonial-next" aria-controls="testimonial-track" aria-label="Próximo depoimento"><span aria-hidden="true">→</span></button>
-      </div>
-      <div class="testimonial-dots" aria-label="Navegação dos depoimentos">
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento de Cristiane Dimitropoulos" aria-current="true"></button>
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 2"></button>
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 3"></button>
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 4"></button>
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 5"></button>
-        <button class="testimonial-dot" type="button" aria-label="Ir para depoimento teste 6"></button>
-      </div>
-      <span class="testimonial-position" role="status" aria-live="polite">1 depoimento recebido · 5 exemplos fictícios</span>
     </div>
   </div>
 </section>
@@ -585,39 +552,38 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
 <p style="margin:0;font-size:18px;color:#475569;text-wrap:pretty">Conte um pouco sobre sua empresa e vamos conversar sobre suas necessidades.</p>
 <p class="demo-disclaimer" style="margin:0;padding:14px 16px;border-left:3px solid #16A6A0;background:#F5F7FB;border-radius:8px;color:#334155;font-size:15px">O formulário envia informações ao e-mail comercial por um serviço externo. O recebimento depende da ativação inicial do endereço. Não envie senhas ou dados sensíveis.</p>
 <div class="preview-contact-links"><a href="https://wa.me/5551981483515?text=Ol%C3%A1%21%20Gostaria%20de%20conversar%20sobre%20o%20suporte%20da%20Help%20Solu%C3%A7%C3%B5es." rel="noopener noreferrer" target="_blank">Conversar no WhatsApp ↗</a><a href="mailto:helpsolucoesemsuporte@gmail.com">helpsolucoesemsuporte@gmail.com</a></div></div>
-<form id="lead-form" action="https://formsubmit.co/helpsolucoesemsuporte@gmail.com" method="POST" novalidate style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:32px;display:grid;gap:18px;box-shadow:0 12px 32px rgba(11,23,48,0.07)" aria-label="Solicitar contato comercial">
+<form id="lead-form" action="https://formsubmit.co/helpsolucoesemsuporte@gmail.com" method="POST" style="background:#fff;border:1px solid #E2E8F0;border-radius:20px;padding:32px;display:grid;gap:18px;box-shadow:0 12px 32px rgba(11,23,48,0.07)" aria-label="Solicitar contato comercial">
       <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden" aria-hidden="true">
         <label>Site<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
       </div>
 
       <input type="hidden" name="_subject" value="Novo contato comercial — Site Help Soluções">
       <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" id="thankyou-url" value="">
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:18px">
         <div style="display:grid;gap:6px">
           <label for="f-nome" style="font-weight:700;font-size:14px">Nome do responsável <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-          <input id="f-nome" name="nome" type="text" autocomplete="name" aria-describedby="e-nome" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+          <input id="f-nome" required name="nome" type="text" minlength="2" autocomplete="name" aria-describedby="e-nome" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
           <span class="field-error" id="e-nome" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
         </div>
         <div style="display:grid;gap:6px">
           <label for="f-empresa" style="font-weight:700;font-size:14px">Empresa <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-          <input id="f-empresa" name="empresa" type="text" autocomplete="organization" aria-describedby="e-empresa" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+          <input id="f-empresa" required name="empresa" type="text" minlength="2" autocomplete="organization" aria-describedby="e-empresa" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
           <span class="field-error" id="e-empresa" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
         </div>
         <div style="display:grid;gap:6px">
           <label for="f-email" style="font-weight:700;font-size:14px">E-mail corporativo <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-          <input id="f-email" name="email" type="email" autocomplete="email" aria-describedby="e-email" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+          <input id="f-email" required name="email" type="email" autocomplete="email" aria-describedby="e-email" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
           <span class="field-error" id="e-email" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
         </div>
         <div style="display:grid;gap:6px">
           <label for="f-whats" style="font-weight:700;font-size:14px">WhatsApp com DDD <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-          <input id="f-whats" name="whatsapp" type="tel" autocomplete="tel" placeholder="(11) 90000-0000" aria-describedby="e-whats" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+          <input id="f-whats" required name="whatsapp" type="tel" autocomplete="tel" placeholder="(11) 90000-0000" aria-describedby="e-whats" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
           <span class="field-error" id="e-whats" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
         </div>
         <div style="display:grid;gap:6px">
           <label for="f-lojas" style="font-weight:700;font-size:14px">Quantidade aproximada de lojas <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-          <select id="f-lojas" name="lojas" aria-describedby="e-lojas" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+          <select id="f-lojas" required name="lojas" aria-describedby="e-lojas" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
             <option value="">Selecione</option>
             <option value="1">1 loja</option>
             <option value="2-5">2 a 5 lojas</option>
@@ -628,9 +594,10 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
         </div>
         <div style="display:grid;gap:6px">
           <label for="f-sistema" style="font-weight:700;font-size:14px">Sistema utilizado <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-          <select id="f-sistema" name="sistema" aria-describedby="e-sistema" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
+          <select id="f-sistema" required name="sistema" aria-describedby="e-sistema" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff">
             <option value="">Selecione</option>
-            <option value="Linx ERP/PMS">Linx ERP/PMS</option>
+            <option value="Linx ERP">Linx ERP</option>
+            <option value="PRESENCE">PRESENCE</option>
             <option value="Microvix">Microvix</option>
             <option value="Linx POS">Linx POS</option>
             <option value="Outro">Outro</option>
@@ -642,13 +609,13 @@ section#depoimentos:not(#inicio):not(#diferenciais):not(#contato) h2{color:#FFFF
 
       <div style="display:grid;gap:6px">
         <label for="f-need" style="font-weight:700;font-size:14px">Principal necessidade <span aria-hidden="true" style="color:#B91C1C">*</span></label>
-        <textarea id="f-need" name="necessidade" rows="4" aria-describedby="e-need" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff;resize:vertical"></textarea>
+        <textarea id="f-need" required name="necessidade" rows="4" minlength="10" aria-describedby="e-need" style="width:100%;padding:12px 14px;border:1px solid #CBD5E1;border-radius:10px;font:inherit;font-size:16px;color:#0B1730;background:#fff;resize:vertical"></textarea>
         <span class="field-error" id="e-need" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
       </div>
 
       <div style="display:grid;gap:6px">
         <label style="display:flex;gap:10px;align-items:flex-start;font-size:15px;color:#334155;cursor:pointer">
-          <input name="consent" type="checkbox" aria-describedby="e-consent" style="margin-top:5px;width:18px;height:18px;accent-color:#2563EB">
+          <input required name="consent" type="checkbox" aria-describedby="e-consent" style="margin-top:5px;width:18px;height:18px;accent-color:#2563EB">
           <span>Li as <a href="privacidade.html">informações de privacidade</a> e autorizo o envio dos dados informados para retorno comercial da Help, por meio do serviço FormSubmit. <span aria-hidden="true" style="color:#B91C1C">*</span></span>
         </label>
         <span class="field-error" id="e-consent" style="min-height:18px;font-size:13px;color:#B91C1C"></span>
