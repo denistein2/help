@@ -40,7 +40,6 @@
   };
 
   let attempted = false;
-  let sending = false;
 
   function fieldIsValid(name, field) {
     const value = field.type === "checkbox" ? field.checked : field.value.trim();
@@ -72,104 +71,43 @@
 
   function showStatus(message, type = "info") {
     status.textContent = message;
-    status.style.color = type === "error" ? "#B91C1C" : type === "success" ? "#0F766E" : "#475569";
+    status.style.color = type === "error" ? "#B91C1C" : "#475569";
     status.setAttribute("aria-live", type === "error" ? "assertive" : "polite");
   }
 
-  function setSending(value) {
-    sending = value;
-    submitButton.disabled = value;
-    submitButton.textContent = value ? "Enviando solicitação…" : "Solicitar contato comercial";
-    submitButton.style.cursor = value ? "wait" : "pointer";
-    submitButton.style.opacity = value ? "0.75" : "1";
-  }
-
-  function isActivationNeeded(message) {
-    return /activat|ativar|ativa[cç][aã]o|confirm.*e.?mail|verify.*email/i.test(message);
-  }
-
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    if (sending) return;
-
-    // Honeypot: não enviar para o provedor quando preenchido.
-    if (String(form.elements.namedItem("_honey").value).trim()) {
-      showStatus("Não foi possível processar sua solicitação.", "error");
-      return;
-    }
-
+  function handleContact(event) {
+    if (event) event.preventDefault();
     attempted = true;
     const firstInvalid = validate();
     if (firstInvalid) {
-      showStatus("Confira os campos destacados antes de enviar.", "error");
+      showStatus("Confira os campos destacados antes de continuar.", "error");
       firstInvalid.focus();
       return;
     }
 
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 18000);
-    const values = new FormData(form);
-    const payload = {};
-    for (const [key, value] of values.entries()) {
-      if (key !== "_honey" && key !== "_next") payload[key] = String(value);
-    }
-    payload.consent = "Concordou com o envio dos dados para contato comercial";
-    payload._replyto = payload.email;
+    const get = name => form.elements.namedItem(name).value.trim();
+    const storeLabels = { "1": "1 loja", "2-5": "2 a 5 lojas", "6-20": "6 a 20 lojas", "21+": "Mais de 20 lojas" };
+    const message = [
+      "Olá, Help! Gostaria de solicitar contato comercial pelo site.",
+      "",
+      "Responsável: " + get("nome"),
+      "Empresa: " + get("empresa"),
+      "E-mail: " + get("email"),
+      "WhatsApp: " + get("whatsapp"),
+      "Lojas: " + (storeLabels[get("lojas")] || get("lojas")),
+      "Sistema: " + get("sistema"),
+      "Necessidade: " + get("necessidade").slice(0, 2000)
+    ].join("\n");
 
-    setSending(true);
-    showStatus("Enviando sua solicitação com segurança…");
+    // Prepara o contato: envio somente após confirmação do visitante no WhatsApp.
+    showStatus("Abrindo o WhatsApp. Confirme o envio da mensagem para concluir.");
+    window.location.assign("https://wa.me/5551981483515?text=" + encodeURIComponent(message));
+  }
 
-    try {
-      const response = await fetch("https://formsubmit.co/ajax/helpsolucoesemsuporte@gmail.com", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(payload),
-        signal: controller.signal
-      });
-
-      let result;
-      try {
-        result = await response.json();
-      } catch (_) {
-        throw new Error("O serviço de formulários não retornou uma confirmação válida.");
-      }
-
-      const providerMessage = String(result && result.message || "");
-      const accepted = response.ok && String(result && result.success).toLowerCase() === "true";
-      if (isActivationNeeded(providerMessage)) {
-        showStatus("O formulário ainda precisa ser ativado pela Help. Por enquanto, entre em contato pelo WhatsApp ou e-mail disponíveis nesta página.", "error");
-        return;
-      }
-      if (!accepted) {
-        showStatus("Não foi possível confirmar o envio. Você pode tentar novamente ou falar diretamente com a Help pelo WhatsApp ou e-mail.", "error");
-        return;
-      }
-
-      showStatus("Solicitação recebida pelo serviço de envio! O retorno depende da entrega do e-mail à Help.", "success");
-      form.reset();
-      attempted = false;
-      for (const name of fields) {
-        const input = form.elements.namedItem(name);
-        input.removeAttribute("aria-invalid");
-        document.getElementById(errors[name].id).textContent = "";
-      }
-    } catch (error) {
-      const message = error && error.name === "AbortError"
-        ? "O envio demorou demais e não pôde ser confirmado. Tente novamente ou use o WhatsApp."
-        : "Não foi possível conectar ao serviço de formulários. Tente novamente ou entre em contato pelo WhatsApp ou e-mail.";
-      showStatus(message, "error");
-    } finally {
-      clearTimeout(timeout);
-      setSending(false);
-    }
-  });
-
-  form.addEventListener("input", () => {
-    if (attempted && !sending) validate();
-  });
-  form.addEventListener("change", () => {
-    if (attempted && !sending) validate();
-  });
+  submitButton.addEventListener("click", handleContact);
+  form.addEventListener("submit", handleContact);
+  form.addEventListener("input", () => { if (attempted) validate(); });
+  form.addEventListener("change", () => { if (attempted) validate(); });
 })();
 
 /* Contador de atendimentos: uma animação ao entrar em tela, com acessibilidade. */
@@ -214,64 +152,4 @@
   }, { threshold: 0.3 });
 
   observer.observe(counter);
-})();
-
-/* Depoimentos fictícios: controles opcionais; o track continua rolável sem JS. */
-(() => {
-  "use strict";
-  const section = document.getElementById("depoimentos");
-  if (!section) return;
-  const track = section.querySelector(".testimonial-track");
-  const slides = Array.from(section.querySelectorAll(".testimonial-card"));
-  const nav = section.querySelector(".testimonial-controls");
-  const prev = section.querySelector(".testimonial-prev");
-  const next = section.querySelector(".testimonial-next");
-  const dots = Array.from(section.querySelectorAll(".testimonial-dot"));
-  const position = section.querySelector(".testimonial-position");
-  if (!track || !nav || !prev || !next || !position || slides.length !== dots.length) return;
-
-  const visibleCount = () => Math.max(1, Math.min(slides.length,
-    Math.round((track.clientWidth + 20) / (slides[0].getBoundingClientRect().width + 20))));
-  const maxStart = () => Math.max(0, slides.length - visibleCount());
-  const offset = (slide) => slide.offsetLeft - slides[0].offsetLeft;
-  const currentStart = () => {
-    const x = track.scrollLeft;
-    let closest = 0;
-    for (let i = 1; i <= maxStart(); i++) {
-      if (Math.abs(offset(slides[i]) - x) < Math.abs(offset(slides[closest]) - x)) closest = i;
-    }
-    return closest;
-  };
-  const update = () => {
-    const start = currentStart();
-    const visible = visibleCount();
-    prev.disabled = start === 0;
-    next.disabled = start >= maxStart();
-    dots.forEach((dot, i) => {
-      dot.hidden = i > maxStart();
-      if (i === start) dot.setAttribute("aria-current", "true");
-      else dot.removeAttribute("aria-current");
-    });
-    position.textContent = visible === 1
-      ? `Depoimento ${start + 1} de ${slides.length}`
-      : `Depoimentos ${start + 1}–${Math.min(slides.length, start + visible)} de ${slides.length}`;
-  };
-  const goTo = (index) => {
-    const i = Math.max(0, Math.min(maxStart(), index));
-    const reducedMotion = window.matchMedia &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    track.scrollTo({ left: offset(slides[i]), behavior: reducedMotion ? "auto" : "smooth" });
-  };
-  prev.addEventListener("click", () => goTo(currentStart() - 1));
-  next.addEventListener("click", () => goTo(currentStart() + 1));
-  dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
-  track.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", update, { passive: true });
-  track.addEventListener("keydown", (event) => {
-    if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
-    event.preventDefault();
-    goTo(currentStart() + (event.key === "ArrowRight" ? 1 : -1));
-  });
-  nav.hidden = false;
-  update();
 })();
