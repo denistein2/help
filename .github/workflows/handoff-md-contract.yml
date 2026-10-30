@@ -29,6 +29,15 @@ jobs:
           import subprocess
           import sys
 
+          # HMD-001 v2 (2026-10-30, auditoria HMD-001-INDEPENDENT-AUDIT-001).
+          # Guarda parcial: valida apenas arquivos de handoff alterados no PR.
+          # Não prova que cada sessão gerou handoff nem que o runtime carregou o contrato.
+          DOC_SUFFIXES = {".md", ".txt", ".pdf", ".doc", ".docx", ".odt", ".rtf", ".html", ".htm", ""}
+          MACHINE_TOP = {"evidence"}  # artefatos de máquina (ex.: handoff.json do FOM) — não são handoff humano
+          NAME_PREFIXES = ("handoff_", "handoff-", "handover_", "handover-", "session_", "session-")
+          NAME_EXACT = {"handoff", "handover"}
+          NAME_INFIX = ("_handoff", "-handoff", "_handover", "-handover")
+
           changed = subprocess.check_output(
               ["git", "diff", "--name-only", "--diff-filter=AMR", "origin/main...HEAD"],
               text=True,
@@ -38,18 +47,21 @@ jobs:
           for name in changed:
               path = pathlib.Path(name)
               parts = [part.casefold() for part in path.parts]
-              if parts[0] == ".github":
-                  continue  # Workflow/config files are not handoff artifacts.
+              if parts[0] == ".github" or path.name.startswith("."):
+                  continue  # workflows/configs e dotfiles (ex.: .gitkeep)
+              if parts[0] in MACHINE_TOP:
+                  continue
               stem = path.stem.casefold()
               in_handoff_dir = any(part in ("handoff", "handoffs") for part in parts[:-1])
-              handoff_named = (
-                  stem == "handoff"
-                  or stem.startswith(("handoff_", "handoff-"))
-                  or "_handoff" in stem
-                  or "-handoff" in stem
+              named = (
+                  stem in NAME_EXACT
+                  or stem.startswith(NAME_PREFIXES)
+                  or any(token in stem for token in NAME_INFIX)
               )
-              if not (in_handoff_dir or handoff_named):
+              if not (in_handoff_dir or named):
                   continue
+              if path.suffix.casefold() not in DOC_SUFFIXES:
+                  continue  # código/dados (ex.: handoff.json, ticket-handoff.ts) não são handoff humano
               checked.append(name)
               if path.suffix != ".md":
                   errors.append(f"{name}: handoff must have lowercase .md extension")
@@ -67,6 +79,10 @@ jobs:
               for error in errors:
                   print(f"::error::{error}")
               sys.exit(1)
+          if not checked:
+              print("NO_HANDOFF_IN_PR: nenhum arquivo de handoff alterado; guarda não aplicável a este PR.")
+              print("DOES_NOT_PROVE: que o PR não deveria ter handoff, ou que houve handoff de sessão.")
+              sys.exit(0)
           print(f"PASS: {len(checked)} changed handoff-related paths checked.")
           print("DOES_NOT_PROVE: every mission generated a handoff or synced Brain/Drive.")
           PY
