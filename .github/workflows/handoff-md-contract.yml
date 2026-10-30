@@ -1,0 +1,88 @@
+name: Handoff Markdown Contract
+
+# HMD-001 (owner decision 2026-10-29). Validates changed handoff artifacts only.
+# Does not attest runtime loading, end-of-session persistence or cross-app sync.
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  handoff-md-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Reject non-Markdown handoffs
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          import subprocess
+          import sys
+
+          # HMD-001 v2 (2026-10-30, auditoria HMD-001-INDEPENDENT-AUDIT-001).
+          # Guarda parcial: valida apenas arquivos de handoff alterados no PR.
+          # Não prova que cada sessão gerou handoff nem que o runtime carregou o contrato.
+          DOC_SUFFIXES = {".md", ".txt", ".pdf", ".doc", ".docx", ".odt", ".rtf", ".html", ".htm", ""}
+          MACHINE_TOP = {"evidence"}  # artefatos de máquina (ex.: handoff.json do FOM) — não são handoff humano
+          NAME_PREFIXES = ("handoff_", "handoff-", "handover_", "handover-", "session_", "session-")
+          NAME_EXACT = {"handoff", "handover"}
+          NAME_INFIX = ("_handoff", "-handoff", "_handover", "-handover")
+
+          changed = subprocess.check_output(
+              ["git", "diff", "--name-only", "--diff-filter=AMR", "origin/main...HEAD"],
+              text=True,
+          ).splitlines()
+          errors = []
+          checked = []
+          for name in changed:
+              path = pathlib.Path(name)
+              parts = [part.casefold() for part in path.parts]
+              if parts[0] == ".github" or path.name.startswith("."):
+                  continue  # workflows/configs e dotfiles (ex.: .gitkeep)
+              if parts[0] in MACHINE_TOP:
+                  continue
+              stem = path.stem.casefold()
+              in_handoff_dir = any(part in ("handoff", "handoffs") for part in parts[:-1])
+              named = (
+                  stem in NAME_EXACT
+                  or stem.startswith(NAME_PREFIXES)
+                  or any(token in stem for token in NAME_INFIX)
+              )
+              if not (in_handoff_dir or named):
+                  continue
+              if path.suffix.casefold() not in DOC_SUFFIXES:
+                  continue  # código/dados (ex.: handoff.json, ticket-handoff.ts) não são handoff humano
+              checked.append(name)
+              if path.suffix != ".md":
+                  errors.append(f"{name}: handoff must have lowercase .md extension")
+                  continue
+              try:
+                  content = path.read_text(encoding="utf-8")
+              except (OSError, UnicodeError) as exc:
+                  errors.append(f"{name}: cannot read UTF-8 Markdown: {exc}")
+                  continue
+              if not content.strip():
+                  errors.append(f"{name}: handoff Markdown is empty")
+          for path in checked:
+              print(f"CHECKED {path}")
+          if errors:
+              for error in errors:
+                  print(f"::error::{error}")
+              sys.exit(1)
+          if not checked:
+              print("NO_HANDOFF_IN_PR: nenhum arquivo de handoff alterado; guarda não aplicável a este PR.")
+              print("DOES_NOT_PROVE: que o PR não deveria ter handoff, ou que houve handoff de sessão.")
+              sys.exit(0)
+          print(f"PASS: {len(checked)} changed handoff-related paths checked.")
+          print("DOES_NOT_PROVE: every mission generated a handoff or synced Brain/Drive.")
+          PY
